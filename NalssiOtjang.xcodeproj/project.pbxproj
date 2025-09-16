@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40713652E797D200000286A /* RecordClothes in Frameworks */ = {isa = PBXBuildFile; productRef = F40713642E797D200000286A /* RecordClothes */; };
 		F4C6571A2E6DAB2500B26139 /* SharedDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = F4C657192E6DAB2500B26139 /* SharedDesignSystem */; };
+		F4D439552E730454007F5272 /* RecordClothes in Frameworks */ = {isa = PBXBuildFile; productRef = F4D439542E730454007F5272 /* RecordClothes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,17 +30,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F40713592E797CFE0000286A /* RecordClothesExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecordClothesExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449CA2F2E5F209E00A1FDFF /* NalssiOtjang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NalssiOtjang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449CA3E2E5F20A000A1FDFF /* NalssiOtjangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NalssiOtjangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449CA482E5F20A000A1FDFF /* NalssiOtjangUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NalssiOtjangUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C6570E2E6DAB1C00B26139 /* DesignSystemExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4D439412E730420007F5272 /* RecordClothes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecordClothes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F426E7332E797E310022B418 /* Exceptions for "NalssiOtjang" folder in "RecordClothesExample" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Feature/Example/RecordClothesExample/Assets.xcassets,
+				Feature/Example/RecordClothesExample/ContentView.swift,
+				Feature/Example/RecordClothesExample/RecordClothesExampleApp.swift,
+			);
+			target = F40713582E797CFE0000286A /* RecordClothesExample */;
+		};
 		F4A36B4E2E6713BB009A76AD /* Exceptions for "NalssiOtjang" folder in "NalssiOtjang" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Core/Log,
+				Feature/Example/RecordClothesExample/Assets.xcassets,
+				Feature/Example/RecordClothesExample/ContentView.swift,
+				Feature/Example/RecordClothesExample/RecordClothesExampleApp.swift,
 				Shared/DesignSystem,
 				Shared/Example/DesignSystemExample/DesignSystemExampleApp.swift,
 				Shared/Example/DesignSystemExample/View/DesignSystemExampleView.swift,
@@ -62,6 +78,7 @@
 			exceptions = (
 				F4A36B4E2E6713BB009A76AD /* Exceptions for "NalssiOtjang" folder in "NalssiOtjang" target */,
 				F4C657232E6DAB5100B26139 /* Exceptions for "NalssiOtjang" folder in "DesignSystemExample" target */,
+				F426E7332E797E310022B418 /* Exceptions for "NalssiOtjang" folder in "RecordClothesExample" target */,
 			);
 			path = NalssiOtjang;
 			sourceTree = "<group>";
@@ -69,6 +86,14 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F40713562E797CFE0000286A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F40713652E797D200000286A /* RecordClothes in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F449CA2C2E5F209E00A1FDFF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,6 +123,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F4D4393E2E730420007F5272 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4D439552E730454007F5272 /* RecordClothes in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,6 +150,8 @@
 				F449CA3E2E5F20A000A1FDFF /* NalssiOtjangTests.xctest */,
 				F449CA482E5F20A000A1FDFF /* NalssiOtjangUITests.xctest */,
 				F4C6570E2E6DAB1C00B26139 /* DesignSystemExample.app */,
+				F4D439412E730420007F5272 /* RecordClothes.app */,
+				F40713592E797CFE0000286A /* RecordClothesExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,6 +166,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F40713582E797CFE0000286A /* RecordClothesExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F40713612E797CFF0000286A /* Build configuration list for PBXNativeTarget "RecordClothesExample" */;
+			buildPhases = (
+				F40713552E797CFE0000286A /* Sources */,
+				F40713562E797CFE0000286A /* Frameworks */,
+				F40713572E797CFE0000286A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RecordClothesExample;
+			packageProductDependencies = (
+				F40713642E797D200000286A /* RecordClothes */,
+			);
+			productName = RecordClothesExample;
+			productReference = F40713592E797CFE0000286A /* RecordClothesExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F449CA2E2E5F209E00A1FDFF /* NalssiOtjang */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F449CA522E5F20A000A1FDFF /* Build configuration list for PBXNativeTarget "NalssiOtjang" */;
@@ -213,6 +268,26 @@
 			productReference = F4C6570E2E6DAB1C00B26139 /* DesignSystemExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F4D439402E730420007F5272 /* RecordClothes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4D439492E730423007F5272 /* Build configuration list for PBXNativeTarget "RecordClothes" */;
+			buildPhases = (
+				F4D4393D2E730420007F5272 /* Sources */,
+				F4D4393E2E730420007F5272 /* Frameworks */,
+				F4D4393F2E730420007F5272 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RecordClothes;
+			packageProductDependencies = (
+				F4D439542E730454007F5272 /* RecordClothes */,
+			);
+			productName = RecordClothes;
+			productReference = F4D439412E730420007F5272 /* RecordClothes.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,6 +298,9 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					F40713582E797CFE0000286A = {
+						CreatedOnToolsVersion = 26.0;
+					};
 					F449CA2E2E5F209E00A1FDFF = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -235,6 +313,9 @@
 						TestTargetID = F449CA2E2E5F209E00A1FDFF;
 					};
 					F4C6570D2E6DAB1C00B26139 = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					F4D439402E730420007F5272 = {
 						CreatedOnToolsVersion = 26.0;
 					};
 				};
@@ -259,11 +340,20 @@
 				F449CA3D2E5F20A000A1FDFF /* NalssiOtjangTests */,
 				F449CA472E5F20A000A1FDFF /* NalssiOtjangUITests */,
 				F4C6570D2E6DAB1C00B26139 /* DesignSystemExample */,
+				F4D439402E730420007F5272 /* RecordClothes */,
+				F40713582E797CFE0000286A /* RecordClothesExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F40713572E797CFE0000286A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F449CA2D2E5F209E00A1FDFF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,9 +382,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F4D4393F2E730420007F5272 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F40713552E797CFE0000286A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F449CA2B2E5F209E00A1FDFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +427,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F4D4393D2E730420007F5272 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -339,6 +450,72 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		F40713622E797CFF0000286A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.RecordClothesExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F40713632E797CFF0000286A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.RecordClothesExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F449CA502E5F20A000A1FDFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -674,9 +851,84 @@
 			};
 			name = Release;
 		};
+		F4D4394A2E730423007F5272 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.RecordClothes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4D4394B2E730423007F5272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.RecordClothes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F40713612E797CFF0000286A /* Build configuration list for PBXNativeTarget "RecordClothesExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F40713622E797CFF0000286A /* Debug */,
+				F40713632E797CFF0000286A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F449CA2A2E5F209E00A1FDFF /* Build configuration list for PBXProject "NalssiOtjang" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -722,12 +974,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		F4D439492E730423007F5272 /* Build configuration list for PBXNativeTarget "RecordClothes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4D4394A2E730423007F5272 /* Debug */,
+				F4D4394B2E730423007F5272 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F40713642E797D200000286A /* RecordClothes */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RecordClothes;
+		};
 		F4C657192E6DAB2500B26139 /* SharedDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SharedDesignSystem;
+		};
+		F4D439542E730454007F5272 /* RecordClothes */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RecordClothes;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
