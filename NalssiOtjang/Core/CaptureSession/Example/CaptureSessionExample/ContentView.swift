@@ -1,18 +1,19 @@
 //
 //  ContentView.swift
-//  RecordClothesExample
+//  CaptureSessionExample
 //
 //  Created by home on 9/16/25.
 //
 
 import SwiftUI
-import RecordClothes
 
 struct ContentView: View {
-    
     var body: some View {
         VStack {
-            RecordClothesExpalinView()
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
+            Text("Hello, world!")
         }
         .padding()
     }
