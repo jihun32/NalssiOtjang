@@ -31,9 +31,5 @@ public struct CameraPreview: UIViewRepresentable {
     public func updateUIView(_ uiView: PreviewView, context: Context) {
         
     }
-    
-    public func cameraPreview() -> AnyView {
-        AnyView(self)
-    }
 }
 
