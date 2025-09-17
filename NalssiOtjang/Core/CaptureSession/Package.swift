@@ -10,6 +10,10 @@ let package = Package(
     ],
     products: [
         .library(
+            name: "CaptureSessionInterface",
+            targets: ["CaptureSessionInterface"]
+        ),
+        .library(
             name: "CaptureSessionFeature",
             targets: ["CaptureSessionFeature"]
         ),
