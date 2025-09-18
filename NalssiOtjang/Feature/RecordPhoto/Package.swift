@@ -8,23 +8,13 @@ let package = Package(
     platforms: [.iOS(.v26)],
     products: [
         .library(
-            name: "RecordPhotoInterface",
-            targets: ["RecordPhotoInterface"]
-        ),
-        .library(
             name: "RecordPhotoFeature",
             targets: ["RecordPhotoFeature"]
-        ),
+        )
     ],
     targets: [
         .target(
-            name: "RecordPhotoInterface",
-            path: "Interface"
-        ),
-        .target(
-            name: "RecordPhotoFeature",
-            dependencies: ["RecordPhotoInterface"]
-        ),
-
+            name: "RecordPhotoFeature"
+        )
     ]
 )

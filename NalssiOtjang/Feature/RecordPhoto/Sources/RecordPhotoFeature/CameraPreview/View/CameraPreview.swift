@@ -3,7 +3,6 @@
 
 import SwiftUI
 import AVFoundation
-import RecordPhotoInterface
 
 public final class PreviewView: UIView {
     public override class var layerClass: AnyClass {
