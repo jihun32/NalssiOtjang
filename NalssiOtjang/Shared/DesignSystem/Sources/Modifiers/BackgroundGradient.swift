@@ -18,7 +18,7 @@ extension View {
                 startPoint: .top,
                 endPoint: .bottom
             )
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
     }
 }
