@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import RecordPhotoFeature
+import FeatureRecordPhoto
 import Foundation
 
 @main

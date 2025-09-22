@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "RecordPhotoFeature",
+    name: "FeatureRecordPhoto",
     platforms: [.iOS(.v26)],
     products: [
         .library(
-            name: "RecordPhotoFeature",
-            targets: ["RecordPhotoFeature"]
+            name: "FeatureRecordPhoto",
+            targets: ["FeatureRecordPhoto"]
         )
     ],
     dependencies: [
@@ -24,7 +24,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "RecordPhotoFeature",
+            name: "FeatureRecordPhoto",
             dependencies: [
                 .product(
                     name: "SharedDesignSystem",

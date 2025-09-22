@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CABC30922E7AE62500C6C848 /* RecordPhotoFeature in Frameworks */ = {isa = PBXBuildFile; productRef = CABC30912E7AE62500C6C848 /* RecordPhotoFeature */; };
+		CAF5AECD2E8135F2007759B6 /* FeatureRecordPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */; };
 		F4C178832E798FCA004DAC5C /* CaptureSessionFeature in Frameworks */ = {isa = PBXBuildFile; productRef = F4C178822E798FCA004DAC5C /* CaptureSessionFeature */; };
 		F4C6571A2E6DAB2500B26139 /* SharedDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = F4C657192E6DAB2500B26139 /* SharedDesignSystem */; };
 /* End PBXBuildFile section */
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CABC30922E7AE62500C6C848 /* RecordPhotoFeature in Frameworks */,
+				CAF5AECD2E8135F2007759B6 /* FeatureRecordPhoto in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +180,7 @@
 			);
 			name = RecordPhotoExample;
 			packageProductDependencies = (
-				CABC30912E7AE62500C6C848 /* RecordPhotoFeature */,
+				CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */,
 			);
 			productName = RecordPhotoExample;
 			productReference = CABC307E2E7AE60900C6C848 /* RecordPhotoExample.app */;
@@ -982,9 +982,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CABC30912E7AE62500C6C848 /* RecordPhotoFeature */ = {
+		CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = RecordPhotoFeature;
+			productName = FeatureRecordPhoto;
 		};
 		F4C178822E798FCA004DAC5C /* CaptureSessionFeature */ = {
 			isa = XCSwiftPackageProductDependency;
