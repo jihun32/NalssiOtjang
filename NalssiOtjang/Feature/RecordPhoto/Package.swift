@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "RecordPhoto",
+    name: "RecordPhotoFeature",
     platforms: [.iOS(.v26)],
     products: [
         .library(
@@ -12,15 +12,28 @@ let package = Package(
             targets: ["RecordPhotoFeature"]
         )
     ],
-    dependencies: [.package(
-        name: "SharedDesignSystem",
-        path: "../Shared/DesignSystem"
-    )],
+    dependencies: [
+        .package(
+            name: "SharedDesignSystem",
+            path: "../Shared/DesignSystem"
+        ),
+        .package(
+            name: "CoreRouterInterface",
+            path: "../Core/Router"
+        )
+    ],
     targets: [
         .target(
             name: "RecordPhotoFeature",
             dependencies: [
-                .product(name: "SharedDesignSystem", package: "SharedDesignSystem")
+                .product(
+                    name: "SharedDesignSystem",
+                    package: "SharedDesignSystem"
+                ),
+                .product(
+                    name: "CoreRouterInterface",
+                    package: "CoreRouterInterface"
+                ),
             ]
         )
     ]
