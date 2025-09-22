@@ -7,11 +7,17 @@
 
 import SwiftUI
 
-struct RecordPhotoRootView: View {
+// MARK: - View
+
+public struct RecordPhotoRootView: View {
     @State var viewModel: RecordPhotoRootViewModel
     
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    public init(viewModel: RecordPhotoRootViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    public var body: some View {
+        RecordPhotoExplainView(viewModel: RecordPhotoExplainViewModel())
     }
 }
 

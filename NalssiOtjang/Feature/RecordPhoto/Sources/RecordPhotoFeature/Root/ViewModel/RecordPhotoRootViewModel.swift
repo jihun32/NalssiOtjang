@@ -7,6 +7,9 @@
 
 import Foundation
 
-struct RecordPhotoRootViewModel {
+public struct RecordPhotoRootViewModel {
     
+    public init() {
+        
+    }
 }

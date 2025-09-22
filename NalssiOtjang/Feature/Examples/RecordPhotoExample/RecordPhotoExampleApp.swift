@@ -14,7 +14,7 @@ struct RecordPhotoExampleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RecordPhotoRootView()
+            RecordPhotoRootView(viewModel: RecordPhotoRootViewModel())
         }
     }
 }

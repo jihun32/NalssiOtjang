@@ -12,9 +12,16 @@ let package = Package(
             targets: ["RecordPhotoFeature"]
         )
     ],
+    dependencies: [.package(
+        name: "SharedDesignSystem",
+        path: "../Shared/DesignSystem"
+    )],
     targets: [
         .target(
-            name: "RecordPhotoFeature"
+            name: "RecordPhotoFeature",
+            dependencies: [
+                .product(name: "SharedDesignSystem", package: "SharedDesignSystem")
+            ]
         )
     ]
 )

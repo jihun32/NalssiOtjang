@@ -6,14 +6,11 @@
 //
 
 import SwiftUI
-import CaptureSessionInterface
-
 public struct RecordPhotoExplainView: View {
-    @Environment(\.recordPhotoFactory) private var recordPhotoFactory
-    let captureSessionManager: CaptureSessionable
     
-    var body: some View {
+    public var body: some View {
         VStack {
+            EmptyView()
         }
     }
 }
