@@ -23,6 +23,7 @@ public enum NOColor {
     
     public enum Neutral {
         case lightGray
+        case darkGray
         case yellow
         case black
         case white
@@ -71,6 +72,8 @@ extension NOColor.Neutral: Colorable {
         switch self {
         case .lightGray:
             Color(.lightGray)
+        case .darkGray:
+            Color(.darkGray)
         case .yellow:
             Color(.yellow)
         case .black:
