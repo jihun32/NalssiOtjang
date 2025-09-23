@@ -7,14 +7,27 @@
 
 import SwiftUI
 import FeatureRecordPhoto
+import CoreRouter
 import Foundation
 
 @main
 struct RecordPhotoExampleApp: App {
-    
+    let router = BaseRouter()
     var body: some Scene {
         WindowGroup {
-            RecordPhotoRootView(viewModel: RecordPhotoRootViewModel())
+            RecordPhotoRootView(
+                viewModel: RecordPhotoRootViewModel(
+                    router: router
+                )
+            )
         }
     }
+}
+
+#Preview {
+    RecordPhotoRootView(
+        viewModel: RecordPhotoRootViewModel(
+            router: BaseRouter()
+        )
+    )
 }

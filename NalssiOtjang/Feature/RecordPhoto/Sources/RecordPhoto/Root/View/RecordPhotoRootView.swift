@@ -17,12 +17,19 @@ public struct RecordPhotoRootView: View {
     }
     
     public var body: some View {
-        RecordPhotoExplainView(viewModel: RecordPhotoExplainViewModel())
+        NavigationStack(path: $viewModel.router.path) {
+            RecordPhotoExplainView(viewModel: RecordPhotoExplainViewModel())
+        }.navigationDestination(for: RecordPhotoRoute.self) { route in
+            destinationView(route)
+        }
     }
-}
-
-#Preview {
-    RecordPhotoRootView(
-        viewModel: RecordPhotoRootViewModel()
-    )
+    
+    @ViewBuilder
+    private func destinationView(_ route: RecordPhotoRoute) -> some View {
+        switch route {
+        case .explainPhoto:
+            RecordPhotoExplainView(viewModel: RecordPhotoExplainViewModel())
+        default: EmptyView()
+        }
+    }
 }

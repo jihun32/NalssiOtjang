@@ -1,37 +1,42 @@
 //
-//  Router+Extension.swift
+//  BaseRouter.swift
 //  CoreRouterInterface
 //
 //  Created by 정지훈 on 9/23/25.
 //
 
 import CoreRouterInterface
+import SwiftUI
 
-extension Router {
+public class BaseRouter: Router {
     
-    // Navigation
-    func push(_ route: some Hashable) {
-        
+    public var path = NavigationPath()
+    var presentedRoute: (any Route)?
+    
+    public init () { }
+    
+    public func push(_ route: some Route) {
+        path.append(route)
     }
     
-    func pop() {
-        
+    public func pop() {
+        path.removeLast()
     }
     
-    func popToRoot() {
-        
+    public func popToRoot() {
+        path.removeLast(path.count)
     }
     
-    // Modal
-    func sheet(_ route: some Hashable) {
-        
-    }
-    func fullScreenCover(_ route: some Hashable) {
-        
+    public func sheet(_ route: some Route) {
+        presentedRoute = route
     }
     
-    func dismiss() {
-        
+    public func fullScreenCover(_ route: some Route) {
+        presentedRoute = route
+    }
+    
+    public func dismiss() {
+        presentedRoute = nil
     }
 }
 

@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import CoreRouterInterface
 
 public struct RecordPhotoRootViewModel {
+    var router: Router
     
-    public init() {
-        
+    public init(router: Router) {
+        self.router = router
     }
 }
