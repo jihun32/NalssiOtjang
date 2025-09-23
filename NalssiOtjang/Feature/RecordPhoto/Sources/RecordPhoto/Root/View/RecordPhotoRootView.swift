@@ -18,9 +18,19 @@ public struct RecordPhotoRootView: View {
     
     public var body: some View {
         NavigationStack(path: $viewModel.router.path) {
-            RecordPhotoExplainView(viewModel: RecordPhotoExplainViewModel())
+            if viewModel.output.isAuthorized {
+                RecordPhotoExplainView(
+                    viewModel: RecordPhotoExplainViewModel()
+                )
+            } else {
+                // TODO: - Alert 만들기
+                EmptyView()
+            }
         }.navigationDestination(for: RecordPhotoRoute.self) { route in
             destinationView(route)
+        }
+        .onAppear {
+            viewModel.action(.onAppear)
         }
     }
     

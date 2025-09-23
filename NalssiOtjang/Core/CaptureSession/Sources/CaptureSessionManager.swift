@@ -2,13 +2,15 @@
 // https://docs.swift.org/swift-book
 
 import CoreCaptureSessionInterface
-import AVFoundation
+@preconcurrency import AVFoundation
 
 final public class CaptureSessionManager: NSObject, CaptureSessionable {
     
     // MARK: - Private Properties
     
     private let photoOutput = AVCapturePhotoOutput()
+    
+    // MARK: - Init
     
     public override init() {
         
@@ -17,30 +19,30 @@ final public class CaptureSessionManager: NSObject, CaptureSessionable {
     // MARK: - Protocol Properties
     
     public let captureSession: AVCaptureSession = AVCaptureSession()
-    public var authorizationStatus: CameraAuthorizationStatus {
+    
+    // MARK: - Public Method
+    
+    public func getIsAuthorized() async -> Bool {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
-        let cameraStatus: CameraAuthorizationStatus = CameraAuthorizationStatus(rawValue: status.rawValue) ?? .notDetermined
+        var isAuthorized = status == .authorized
+        guard isAuthorized == false else { return true }
         
-        return cameraStatus
-    }
-    
-    // MARK: - Protocol Method
-    
-    public func requestAuthorization() async {
-        if authorizationStatus == .notDetermined {
-            await AVCaptureDevice.requestAccess(for: .video)
+        if status == .notDetermined {
+            isAuthorized = await AVCaptureDevice.requestAccess(for: .video)
         }
+        
+        return isAuthorized
     }
     
     public func setUpCaptureSession() async {
         captureSession.beginConfiguration()
         guard let videoDevice = AVCaptureDevice.default(
-                .builtInWideAngleCamera,
-                for: .video,
-                position: .unspecified),
+            .builtInWideAngleCamera,
+            for: .video,
+            position: .unspecified),
               let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
               captureSession.canAddInput(videoDeviceInput)
-            else { return }
+        else { return }
         
         captureSession.addInput(videoDeviceInput)
         
@@ -48,9 +50,7 @@ final public class CaptureSessionManager: NSObject, CaptureSessionable {
         captureSession.sessionPreset = .photo
         captureSession.addOutput(photoOutput)
         captureSession.commitConfiguration()
-    }
-    
-    public func startRunning() {
+        
         captureSession.startRunning()
     }
     
@@ -61,11 +61,6 @@ final public class CaptureSessionManager: NSObject, CaptureSessionable {
     public func capturePhoto() {
         let settings = AVCapturePhotoSettings()
         photoOutput.capturePhoto(with: settings, delegate: self)
-  }
-    // MARK: - Factory Method
-    
-    public func makeCaptureSessionManager() -> CaptureSessionable {
-        CaptureSessionManager()
     }
 }
 

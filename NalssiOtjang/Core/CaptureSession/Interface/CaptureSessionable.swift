@@ -7,20 +7,11 @@
 
 import AVFoundation
 
-public enum CameraAuthorizationStatus: Int {
-    case notDetermined
-    case restricted
-    case denied
-    case authorized
-}
-
-public protocol CaptureSessionable {
+public protocol CaptureSessionable: Sendable {
     var captureSession: AVCaptureSession { get }
-    var authorizationStatus: CameraAuthorizationStatus { get }
-
-    func requestAuthorization() async
+    
+    func getIsAuthorized() async -> Bool
     func setUpCaptureSession() async
-    func startRunning()
     func stopRunning()
     func capturePhoto()
 }
