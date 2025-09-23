@@ -21,4 +21,12 @@ extension View {
             .ignoresSafeArea()
         }
     }
+    
+    public func setBackgroundBlackIgnoreSafeArea() -> some View {
+        self.background {
+            Color.black
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
+        }
+    }
 }
