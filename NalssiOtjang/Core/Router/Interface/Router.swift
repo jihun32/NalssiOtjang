@@ -1,15 +1,21 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
 
+import SwiftUI
+
+public protocol Route: Hashable {
+    
+}
+
 public protocol Router {
     // Navigation
-    func push<T: Hashable>(_ route: T)
+    var path: NavigationPath { get set }
+    func push(_ route: some Route)
     func pop()
     func popToRoot()
-    func replace<T: Hashable>(_ route: T)
     
     // Modal
-    func sheet<T: Hashable>(_ route: T)
-    func fullScreenCover<T: Hashable>(_ route: T)
+    func sheet(_ route: some Route)
+    func fullScreenCover(_ route: some Route)
     func dismiss()
 }

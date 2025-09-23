@@ -4,11 +4,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "CoreRouterInterface",
+    name: "CoreRouter",
+    platforms: [.iOS(.v26)],
     products: [
         .library(
             name: "CoreRouterInterface",
             targets: ["CoreRouterInterface"]
+        ),
+        .library(
+            name: "CoreRouter",
+            targets: ["CoreRouter"]
         ),
     ],
     targets: [
@@ -16,6 +21,10 @@ let package = Package(
             name: "CoreRouterInterface",
             path: "Interface"
         ),
-
+        .target(
+            name: "CoreRouter",
+            dependencies: ["CoreRouterInterface"],
+            path: "Sources"
+        )
     ]
 )
