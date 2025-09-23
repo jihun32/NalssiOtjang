@@ -10,7 +10,7 @@ import CoreRouterInterface
 
 public enum RecordPhotoRoute: Route {
     case explainPhoto
-    case camera
+    case cameraPreview
     case validatePhoto
     case choiceClothesIcon
     case recordPhoto

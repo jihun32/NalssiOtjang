@@ -29,7 +29,7 @@ public final class RecordPhotoRootViewModel {
     // MARK: - Dependencies
     
     var router: Router
-    private let captureSessionManager: CaptureSessionable
+    let captureSessionManager: CaptureSessionable
     
     // MARK: - Init
     
@@ -46,6 +46,9 @@ public final class RecordPhotoRootViewModel {
         case .onAppear:
             Task {
                 let isAuthorized = await captureSessionManager.getIsAuthorized()
+                if isAuthorized {
+                    await captureSessionManager.setUpCaptureSession()
+                }
                 output.isAuthorized = isAuthorized
             }
         }

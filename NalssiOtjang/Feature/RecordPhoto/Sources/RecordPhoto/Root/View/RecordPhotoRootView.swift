@@ -20,14 +20,18 @@ public struct RecordPhotoRootView: View {
         NavigationStack(path: $viewModel.router.path) {
             if viewModel.output.isAuthorized {
                 RecordPhotoExplainView(
-                    viewModel: RecordPhotoExplainViewModel()
+                    viewModel: RecordPhotoExplainViewModel(
+                        router: viewModel.router,
+                        captureSessionManager: viewModel.captureSessionManager
+                    )
                 )
+                .navigationDestination(for: RecordPhotoRoute.self) { route in
+                    destinationView(route)
+                }
             } else {
                 // TODO: - Alert 만들기
                 EmptyView()
             }
-        }.navigationDestination(for: RecordPhotoRoute.self) { route in
-            destinationView(route)
         }
         .onAppear {
             viewModel.action(.onAppear)
@@ -38,7 +42,19 @@ public struct RecordPhotoRootView: View {
     private func destinationView(_ route: RecordPhotoRoute) -> some View {
         switch route {
         case .explainPhoto:
-            RecordPhotoExplainView(viewModel: RecordPhotoExplainViewModel())
+            RecordPhotoExplainView(
+                viewModel: RecordPhotoExplainViewModel(
+                    router: viewModel.router,
+                    captureSessionManager: viewModel.captureSessionManager
+                )
+            )
+        case .cameraPreview:
+            CaptureCameraView(
+                viewModel: CaptureCameraViewModel(
+                    router: viewModel.router,
+                    captureSessionManager: viewModel.captureSessionManager
+                )
+            )
         default: EmptyView()
         }
     }

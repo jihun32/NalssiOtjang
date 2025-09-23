@@ -36,11 +36,9 @@ final public class CaptureSessionManager: NSObject, CaptureSessionable {
     
     public func setUpCaptureSession() async {
         captureSession.beginConfiguration()
-        guard let videoDevice = AVCaptureDevice.default(
-            .builtInWideAngleCamera,
-            for: .video,
-            position: .unspecified),
-              let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
+        let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera,
+                                                  for: .video, position: .unspecified)
+        guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!),
               captureSession.canAddInput(videoDeviceInput)
         else { return }
         

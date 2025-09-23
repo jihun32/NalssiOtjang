@@ -34,6 +34,7 @@ public struct RecordPhotoExplainView: View {
             Spacer()
             
             NOLongWidthCapsuleButton(text: "사진찍기") {
+                viewModel.action(.capturePhotoButtonTapped)
             }
             
         }
@@ -57,10 +58,4 @@ extension RecordPhotoExplainView {
             static let horizontalPadding: CGFloat = 20
         }
     }
-}
-
-#Preview {
-    RecordPhotoExplainView(
-        viewModel: RecordPhotoExplainViewModel()
-    )
 }
