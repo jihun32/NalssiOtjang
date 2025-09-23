@@ -8,10 +8,11 @@
 import CoreRouterInterface
 import SwiftUI
 
+@Observable
 public class BaseRouter: Router {
     
     public var path = NavigationPath()
-    var presentedRoute: (any Route)?
+    public var presentedRoute: (any Route)?
     
     public init () { }
     

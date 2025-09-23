@@ -10,6 +10,7 @@ public protocol Route: Hashable {
 public protocol Router {
     // Navigation
     var path: NavigationPath { get set }
+    var presentedRoute: (any Route)? { get set }
     func push(_ route: some Route)
     func pop()
     func popToRoot()
