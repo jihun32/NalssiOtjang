@@ -7,11 +7,14 @@
 
 import Foundation
 import CoreRouterInterface
+import CoreCaptureSessionInterface
 
 public struct RecordPhotoRootViewModel {
     var router: Router
+    let captureSessionManager: CaptureSessionable
     
-    public init(router: Router) {
+    public init(router: Router, captureSessionManager: CaptureSessionable) {
         self.router = router
+        self.captureSessionManager = captureSessionManager
     }
 }

@@ -1,13 +1,18 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
 
-import CaptureSessionInterface
+import CoreCaptureSessionInterface
 import AVFoundation
 
 final public class CaptureSessionManager: NSObject, CaptureSessionable {
     
-    // MARK: - Properties
+    // MARK: - Private Properties
+    
     private let photoOutput = AVCapturePhotoOutput()
+    
+    public override init() {
+        
+    }
     
     // MARK: - Protocol Properties
     

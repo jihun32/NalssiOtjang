@@ -4,28 +4,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "CaptureSession",
+    name: "CoreCaptureSession",
     platforms: [
         .iOS(.v26)
     ],
     products: [
         .library(
-            name: "CaptureSessionInterface",
-            targets: ["CaptureSessionInterface"]
+            name: "CoreCaptureSessionInterface",
+            targets: ["CoreCaptureSessionInterface"]
         ),
         .library(
-            name: "CaptureSessionFeature",
-            targets: ["CaptureSessionFeature"]
+            name: "CoreCaptureSession",
+            targets: ["CoreCaptureSession"]
         ),
     ],
     targets: [
         .target(
-            name: "CaptureSessionInterface",
+            name: "CoreCaptureSessionInterface",
             path: "Interface"
         ),
         .target(
-            name: "CaptureSessionFeature",
-            dependencies: ["CaptureSessionInterface"]
+            name: "CoreCaptureSession",
+            dependencies: ["CoreCaptureSessionInterface"],
+            path: "Sources"
         ),
     ]
 )

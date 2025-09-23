@@ -8,16 +8,19 @@
 import SwiftUI
 import FeatureRecordPhoto
 import CoreRouter
+import CoreCaptureSession
 import Foundation
 
 @main
 struct RecordPhotoExampleApp: App {
     let router = BaseRouter()
+    let captureSessionManager = CaptureSessionManager()
     var body: some Scene {
         WindowGroup {
             RecordPhotoRootView(
                 viewModel: RecordPhotoRootViewModel(
-                    router: router
+                    router: router,
+                    captureSessionManager: captureSessionManager
                 )
             )
         }
@@ -27,7 +30,8 @@ struct RecordPhotoExampleApp: App {
 #Preview {
     RecordPhotoRootView(
         viewModel: RecordPhotoRootViewModel(
-            router: BaseRouter()
+            router: BaseRouter(),
+            captureSessionManager: CaptureSessionManager()
         )
     )
 }

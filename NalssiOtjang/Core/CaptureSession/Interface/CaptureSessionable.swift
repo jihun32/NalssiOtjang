@@ -15,9 +15,6 @@ public enum CameraAuthorizationStatus: Int {
 }
 
 public protocol CaptureSessionable {
-    // factory
-    func makeCaptureSessionManager() -> CaptureSessionable
-    
     var captureSession: AVCaptureSession { get }
     var authorizationStatus: CameraAuthorizationStatus { get }
 

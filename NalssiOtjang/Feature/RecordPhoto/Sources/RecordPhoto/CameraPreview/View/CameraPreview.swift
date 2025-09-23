@@ -24,6 +24,7 @@ public struct CameraPreview: UIViewRepresentable {
         let preview = PreviewView()
         preview.videoPreviewLayer.session = session
         preview.videoPreviewLayer.videoGravity = .resizeAspectFill
+        preview.backgroundColor = .black
         return preview
     }
     
