@@ -10,11 +10,11 @@ import SwiftUI
 // MARK: - View
 
 public struct NOLongWidthCapsuleButton: NOButton {
+
     let text: String
-    let textColor: Color = Constant.textColor
-    let backgroundColor: Color = Constant.backgroundColor
-    let width: CGFloat = Constant.width
-    let height: CGFloat = Constant.height
+    let foregroundColor: Color = Constant.textColor
+    let backgroundColor: Color? = Constant.backgroundColor
+    let buttonSize: CGSize? = CGSize(width: Constant.width, height: Constant.height)
     
     let action: () -> Void
     
@@ -28,10 +28,10 @@ public struct NOLongWidthCapsuleButton: NOButton {
             action()
         } label: {
             Text(text)
-                .foregroundStyle(textColor)
+                .foregroundStyle(foregroundColor)
                 .font(.headline)
         }
-        .frame(maxWidth: width, maxHeight: height)
+        .frame(maxWidth: buttonSize?.width, maxHeight: buttonSize?.height)
         .background(backgroundColor)
         .clipShape(.capsule)
     }
