@@ -10,7 +10,7 @@ import CoreCaptureSessionInterface
 import CoreRouterInterface
 
 @Observable 
-public final class RecordPhotoExplainViewModel {
+final class RecordPhotoExplainViewModel {
     
     // MARK: - Input
     
@@ -30,7 +30,7 @@ public final class RecordPhotoExplainViewModel {
     private let captureSessionManager: CaptureSessionable
     
     // MARK: - Init
-    public init(router: Router, captureSessionManager: CaptureSessionable) {
+    init(router: Router, captureSessionManager: CaptureSessionable) {
         self.output = Output()
         self.router = router
         self.captureSessionManager = captureSessionManager

@@ -8,15 +8,15 @@
 import SwiftUI
 import SharedDesignSystem
 
-public struct CaptureCameraView: View {
+struct CaptureCameraView: View {
     
     private let viewModel: CaptureCameraViewModel
     
-    public init(viewModel: CaptureCameraViewModel) {
+    init(viewModel: CaptureCameraViewModel) {
         self.viewModel = viewModel
     }
     
-    public var body: some View {
+    var body: some View {
         
         VStack(spacing: Constant.RootVStack.spacing) {
             

@@ -10,14 +10,14 @@ import SharedDesignSystem
 
 // MARK: - View
 
-public struct RecordPhotoExplainView: View {
-    let viewModel: RecordPhotoExplainViewModel
+struct RecordPhotoExplainView: View {
+    private let viewModel: RecordPhotoExplainViewModel
     
-    public init(viewModel: RecordPhotoExplainViewModel) {
+    init(viewModel: RecordPhotoExplainViewModel) {
         self.viewModel = viewModel
     }
     
-    public var body: some View {
+    var body: some View {
         VStack(spacing: 0) {
             
             Text(Constant.ExplainText.explainText)

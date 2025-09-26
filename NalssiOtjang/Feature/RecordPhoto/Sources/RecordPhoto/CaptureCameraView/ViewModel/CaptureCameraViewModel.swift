@@ -11,7 +11,7 @@ import CoreCaptureSessionInterface
 import CoreLog
 
 @Observable @MainActor
-public final class CaptureCameraViewModel {
+final class CaptureCameraViewModel {
     
     // MARK: - Input
     

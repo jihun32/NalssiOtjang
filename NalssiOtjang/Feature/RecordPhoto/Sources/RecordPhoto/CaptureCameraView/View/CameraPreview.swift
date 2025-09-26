@@ -4,8 +4,8 @@
 import SwiftUI
 import AVFoundation
 
-public final class PreviewView: UIView {
-    public override class var layerClass: AnyClass {
+final class PreviewView: UIView {
+    override class var layerClass: AnyClass {
         AVCaptureVideoPreviewLayer.self
     }
     var videoPreviewLayer: AVCaptureVideoPreviewLayer {
@@ -13,14 +13,14 @@ public final class PreviewView: UIView {
     }
 }
 
-public struct CameraPreview: UIViewRepresentable {
+struct CameraPreview: UIViewRepresentable {
     let session: AVCaptureSession
     
-    public init(session: AVCaptureSession) {
+    init(session: AVCaptureSession) {
         self.session = session
     }
     
-    public func makeUIView(context: Context) -> PreviewView {
+    func makeUIView(context: Context) -> PreviewView {
         let preview = PreviewView()
         preview.videoPreviewLayer.session = session
         preview.videoPreviewLayer.videoGravity = .resizeAspectFill
@@ -28,7 +28,7 @@ public struct CameraPreview: UIViewRepresentable {
         return preview
     }
     
-    public func updateUIView(_ uiView: PreviewView, context: Context) {
+    func updateUIView(_ uiView: PreviewView, context: Context) {
         
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - View
 
 public struct RecordPhotoRootView: View {
-    @State var viewModel: RecordPhotoRootViewModel
+    @State private var viewModel: RecordPhotoRootViewModel
     
     public init(viewModel: RecordPhotoRootViewModel) {
         self.viewModel = viewModel
