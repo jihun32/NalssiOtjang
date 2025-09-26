@@ -23,7 +23,6 @@ final class CaptureCameraViewModel {
     // MARK: - Output
     
     struct Output {
-        var xButtonHidden: Bool = false
         var capturedImage: UIImage?
     }
     

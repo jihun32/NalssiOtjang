@@ -20,5 +20,5 @@ protocol NOTextButton: NOButton {
 
 protocol NOImageButton: NOButton {
     var image: Image { get }
-    var imageSize: CGSize { get }
+    var imageSize: CGSize? { get }
 }

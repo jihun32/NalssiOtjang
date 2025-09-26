@@ -30,6 +30,7 @@ struct CaptureCameraView: View {
                     .fill(Color.customColor(.neutral(.white)))
                     .frame(width: Constant.CaptureButton.size, height: Constant.CaptureButton.size)
             }
+            .padding(.bottom, Constant.CaptureButton.bottomPadding)
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -37,37 +38,56 @@ struct CaptureCameraView: View {
                     .foregroundStyle(Color.customColor(.neutral(.white)))
             }
             
-            ToolbarItem(placement: .topBarTrailing) {
-                if !viewModel.output.xButtonHidden {
-                    NOXButton {
-                        viewModel.action(.xButtonTapped)
+            ToolbarItem(placement: .bottomBar) {
+                NOToolBarButton(
+                    image: Image(systemName: Constant.ToolBarButton.xButtonimageName),
+                    imageSize: .init(width: 18, height: 18),
+                    foregroundColor: .customColor(.neutral(.white))) {
+                        
                     }
-                }
             }
+            .sharedBackgroundVisibility(.hidden)
+            
+            ToolbarSpacer(.flexible, placement: .bottomBar)
+            
+            ToolbarItem(placement: .bottomBar) {
+                NOToolBarButton(
+                    image: Image(systemName: Constant.ToolBarButton.changeButtonimageName),
+                    imageSize: .init(width: 26, height: 22),
+                    foregroundColor: .customColor(.neutral(.white))) {
+                        
+                    }
+            }
+            .sharedBackgroundVisibility(.hidden)
         }
+        .navigationBarBackButtonHidden()
         .setBackgroundBlackIgnoreSafeArea()
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(!viewModel.output.xButtonHidden)
     }
 }
 
 // MARK: - Constant
 
 extension CaptureCameraView {
-    private enum Constant {
+    fileprivate enum Constant {
         
-        fileprivate enum RootVStack {
+        enum RootVStack {
             static let spacing: CGFloat = 20
         }
         
-        fileprivate enum ExplainText {
+        enum ExplainText {
             static let text: String = "옷이 잘 보이도록 사진을 찍어주세요"
             static let topPadding: CGFloat = 10
         }
         
-        fileprivate enum CaptureButton {
+        enum CaptureButton {
             static let lineWidth: CGFloat = 10
             static let size: CGFloat = 60
+            static let bottomPadding: CGFloat = 15
+        }
+        
+        enum ToolBarButton {
+            static let xButtonimageName: String = "xmark"
+            static let changeButtonimageName: String = "arrow.trianglehead.2.clockwise.rotate.90"
         }
     }
 }

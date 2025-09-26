@@ -45,14 +45,14 @@ struct RecordPhotoExplainView: View {
 // MARK: - Constant
 
 extension RecordPhotoExplainView {
-    private enum Constant {
-        fileprivate enum ExplainText {
+    fileprivate enum Constant {
+        enum ExplainText {
             static let explainText: String = "오늘 입었던 옷이 잘 보이도록 사진을 찍어주세요"
             static let topPadding: CGFloat = 50
             static let fontSize: CGFloat = 25
         }
         
-        fileprivate enum ExplainImage {
+        enum ExplainImage {
             static let frameHeight: CGFloat = 500
             static let topPadding: CGFloat = 40
             static let horizontalPadding: CGFloat = 20
