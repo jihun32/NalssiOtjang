@@ -9,7 +9,7 @@ import Foundation
 import CoreCaptureSessionInterface
 import CoreRouterInterface
 
-@Observable @MainActor
+@Observable 
 public final class RecordPhotoExplainViewModel {
     
     // MARK: - Input
@@ -41,9 +41,7 @@ public final class RecordPhotoExplainViewModel {
     func action(_ input: Input) {
         switch input {
         case .capturePhotoButtonTapped:
-            Task {
-                router.push(RecordPhotoRoute.cameraPreview)
-            }
+            router.push(RecordPhotoRoute.cameraPreview)
         }
     }
 }

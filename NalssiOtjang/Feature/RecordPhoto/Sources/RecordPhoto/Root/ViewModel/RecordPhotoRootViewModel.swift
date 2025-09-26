@@ -44,10 +44,10 @@ public final class RecordPhotoRootViewModel {
     func action(_ input: Input) {
         switch input {
         case .onAppear:
-            Task {
-                let isAuthorized = await captureSessionManager.getIsAuthorized()
+            Task { [manager = captureSessionManager] in
+                let isAuthorized = await manager.getIsAuthorized()
                 if isAuthorized {
-                    await captureSessionManager.setUpCaptureSession()
+                    await manager.setUpCaptureSession()
                 }
                 output.isAuthorized = isAuthorized
             }
