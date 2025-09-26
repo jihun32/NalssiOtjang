@@ -16,14 +16,16 @@ final class CaptureCameraViewModel {
     // MARK: - Input
     
     enum Input {
-        case xButtonTapped
         case captureButtonTapped
+        case xButtonTapped
+        case switchButtonTapped
     }
     
     // MARK: - Output
     
     struct Output {
         var capturedImage: UIImage?
+        var isFrontCamera: Bool = false
     }
     
     private(set) var output: Output
@@ -43,8 +45,6 @@ final class CaptureCameraViewModel {
     
     func action(_ input: Input) {
         switch input {
-        case .xButtonTapped:
-            break
         case .captureButtonTapped:
             Task { [manager = captureSessionManager] in
                 do {
@@ -53,6 +53,14 @@ final class CaptureCameraViewModel {
                 } catch {
                     Log.error("CaptureCameraError")
                 }
+            }
+        case .xButtonTapped:
+            break
+            
+        case .switchButtonTapped:
+            Task { [isFrontCamera = output.isFrontCamera, manager = captureSessionManager] in
+                output.isFrontCamera = !isFrontCamera
+                await manager.switchCamera(output.isFrontCamera)
             }
         }
     }

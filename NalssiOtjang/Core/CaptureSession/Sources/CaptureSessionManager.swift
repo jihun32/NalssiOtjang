@@ -37,21 +37,37 @@ final public class CaptureSessionManager: NSObject, CaptureSessionable {
         return isAuthorized
     }
     
-    public func setUpCaptureSession() async {
+    public func setUpCaptureSession(position: AVCaptureDevice.Position) async {
         captureSession.beginConfiguration()
-        let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera,
-                                                  for: .video, position: .unspecified)
-        guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!),
-              captureSession.canAddInput(videoDeviceInput)
-        else { return }
         
-        captureSession.addInput(videoDeviceInput)
+        // Remove all existing inputs before switching cameras
+        for input in captureSession.inputs {
+            captureSession.removeInput(input)
+        }
         
-        guard captureSession.canAddOutput(photoOutput) else { return }
+        // Find a camera device for the requested position
+        let discovery = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDualCamera, .builtInTripleCamera, .builtInDualWideCamera], mediaType: .video, position: position)
+        
+        guard let cameraDevice = discovery.devices.first else {
+            captureSession.commitConfiguration()
+            return
+        }
+        
+        guard let input = try? AVCaptureDeviceInput(device: cameraDevice) else {
+            captureSession.commitConfiguration()
+            return
+        }
+        
+        if captureSession.canAddInput(input) {
+            captureSession.addInput(input)
+        }
+        
+        if captureSession.canAddOutput(photoOutput) {
+            captureSession.addOutput(photoOutput)
+        }
+        
         captureSession.sessionPreset = .photo
-        captureSession.addOutput(photoOutput)
         captureSession.commitConfiguration()
-        
         captureSession.startRunning()
     }
     
@@ -65,6 +81,10 @@ final public class CaptureSessionManager: NSObject, CaptureSessionable {
             let settings = AVCapturePhotoSettings()
             photoOutput.capturePhoto(with: settings, delegate: self)
         }
+    }
+    
+    public func switchCamera(_ isFrontCamera: Bool) async {
+        await setUpCaptureSession(position: isFrontCamera ? .front : .back)
     }
 }
 

@@ -47,7 +47,7 @@ public final class RecordPhotoRootViewModel {
             Task { [manager = captureSessionManager] in
                 let isAuthorized = await manager.getIsAuthorized()
                 if isAuthorized {
-                    await manager.setUpCaptureSession()
+                    await manager.setUpCaptureSession(position: .back)
                 }
                 output.isAuthorized = isAuthorized
             }

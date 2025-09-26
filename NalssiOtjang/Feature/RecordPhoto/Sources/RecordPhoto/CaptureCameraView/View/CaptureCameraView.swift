@@ -43,7 +43,7 @@ struct CaptureCameraView: View {
                     image: Image(systemName: Constant.ToolBarButton.xButtonimageName),
                     imageSize: .init(width: 18, height: 18),
                     foregroundColor: .customColor(.neutral(.white))) {
-                        
+                        viewModel.action(.xButtonTapped)
                     }
             }
             .sharedBackgroundVisibility(.hidden)
@@ -52,10 +52,10 @@ struct CaptureCameraView: View {
             
             ToolbarItem(placement: .bottomBar) {
                 NOToolBarButton(
-                    image: Image(systemName: Constant.ToolBarButton.changeButtonimageName),
+                    image: Image(systemName: Constant.ToolBarButton.switchButtonimageName),
                     imageSize: .init(width: 26, height: 22),
                     foregroundColor: .customColor(.neutral(.white))) {
-                        
+                        viewModel.action(.switchButtonTapped)
                     }
             }
             .sharedBackgroundVisibility(.hidden)
@@ -87,7 +87,7 @@ extension CaptureCameraView {
         
         enum ToolBarButton {
             static let xButtonimageName: String = "xmark"
-            static let changeButtonimageName: String = "arrow.trianglehead.2.clockwise.rotate.90"
+            static let switchButtonimageName: String = "arrow.trianglehead.2.clockwise.rotate.90"
         }
     }
 }
