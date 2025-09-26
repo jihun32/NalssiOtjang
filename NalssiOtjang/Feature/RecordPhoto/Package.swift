@@ -20,6 +20,10 @@ let package = Package(
         .package(
             name: "CoreRouterInterface",
             path: "../Core/Router"
+        ),
+        .package(
+            name: "CoreLog",
+            path: "../Core/Log"
         )
     ],
     targets: [
@@ -33,6 +37,10 @@ let package = Package(
                 .product(
                     name: "CoreRouterInterface",
                     package: "CoreRouterInterface"
+                ),
+                .product(
+                    name: "CoreLog",
+                    package: "CoreLog"
                 ),
             ]
         )

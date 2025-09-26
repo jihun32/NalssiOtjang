@@ -4,23 +4,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "Log",
+    name: "CoreLog",
     platforms: [
         .iOS(.v26)
     ],
     products: [
         .library(
-            name: "Log",
-            targets: ["Log"]
+            name: "CoreLog",
+            targets: ["CoreLog"]
         )
     ],
     targets: [
         .target(
-            name: "Log"
+            name: "CoreLog",
+            path: "Sources"
         ),
         .testTarget(
             name: "LogTests",
-            dependencies: ["Log"]
+            dependencies: ["CoreLog"]
         ),
     ]
 )
