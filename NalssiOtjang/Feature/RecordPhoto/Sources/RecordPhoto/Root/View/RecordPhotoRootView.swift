@@ -11,6 +11,7 @@ import SwiftUI
 
 public struct RecordPhotoRootView: View {
     @State private var viewModel: RecordPhotoRootViewModel
+    @AppStorage("hasSeenRecordPhotoExplain") private var hasSeenRecordPhotoExplain: Bool = false
     
     public init(viewModel: RecordPhotoRootViewModel) {
         self.viewModel = viewModel
@@ -18,19 +19,15 @@ public struct RecordPhotoRootView: View {
     
     public var body: some View {
         NavigationStack(path: $viewModel.router.path) {
-            if viewModel.output.isAuthorized {
-                RecordPhotoExplainView(
-                    viewModel: RecordPhotoExplainViewModel(
-                        router: viewModel.router,
-                        captureSessionManager: viewModel.captureSessionManager
-                    )
+            CaptureCameraView(
+                viewModel: CaptureCameraViewModel(
+                    output: CaptureCameraViewModel.Output(isAuthorized: viewModel.output.isAuthorized),
+                    router: viewModel.router,
+                    captureSessionManager: viewModel.captureSessionManager
                 )
-                .navigationDestination(for: RecordPhotoRoute.self) { route in
-                    destinationView(route)
-                }
-            } else {
-                // TODO: - Alert 만들기
-                EmptyView()
+            )
+            .navigationDestination(for: RecordPhotoRoute.self) { route in
+                destinationView(route)
             }
         }
         .onAppear {
@@ -41,20 +38,6 @@ public struct RecordPhotoRootView: View {
     @ViewBuilder
     private func destinationView(_ route: RecordPhotoRoute) -> some View {
         switch route {
-        case .explainPhoto:
-            RecordPhotoExplainView(
-                viewModel: RecordPhotoExplainViewModel(
-                    router: viewModel.router,
-                    captureSessionManager: viewModel.captureSessionManager
-                )
-            )
-        case .cameraPreview:
-            CaptureCameraView(
-                viewModel: CaptureCameraViewModel(
-                    router: viewModel.router,
-                    captureSessionManager: viewModel.captureSessionManager
-                )
-            )
         default: EmptyView()
         }
     }

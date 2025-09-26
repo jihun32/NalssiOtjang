@@ -9,7 +9,7 @@ import SwiftUI
 
 // MARK: - View
 
-public struct NOLongWidthCapsuleButton: NOButton {
+public struct NORoundedRectangleButton: NOButton {
 
     let text: String
     let foregroundColor: Color = Constant.textColor
@@ -39,17 +39,17 @@ public struct NOLongWidthCapsuleButton: NOButton {
 
 // MARK: - Constant
 
-extension NOLongWidthCapsuleButton {
+extension NORoundedRectangleButton {
     private enum Constant {
         static let textColor: Color = .customColor(.neutral(.white))
-        static let backgroundColor: Color = .customColor(.neutral(.black))
-        static let width: CGFloat = 200
-        static let height: CGFloat = 50
+        static let backgroundColor: Color = .customColor(.primary(.main))
+        static let width: CGFloat = .infinity
+        static let height: CGFloat = 40
     }
 }
 
 #Preview {
-    NOLongWidthCapsuleButton(
+    NORoundedRectangleButton(
         text: "사진찍기",
         action: { }
     )

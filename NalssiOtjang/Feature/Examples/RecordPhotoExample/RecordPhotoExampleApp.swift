@@ -15,14 +15,24 @@ import Foundation
 struct RecordPhotoExampleApp: App {
     let router = BaseRouter()
     let captureSessionManager = CaptureSessionManager()
+    
+    @State var isToggle: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            RecordPhotoRootView(
-                viewModel: RecordPhotoRootViewModel(
-                    router: router,
-                    captureSessionManager: captureSessionManager
+            VStack {
+                Button("사진 찍기") {
+                    isToggle.toggle()
+                }
+            }
+            .fullScreenCover(isPresented: $isToggle) {
+                RecordPhotoRootView(
+                    viewModel: RecordPhotoRootViewModel(
+                        router: router,
+                        captureSessionManager: captureSessionManager
+                    )
                 )
-            )
+            }
         }
     }
 }

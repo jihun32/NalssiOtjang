@@ -24,6 +24,7 @@ final class CaptureCameraViewModel {
     // MARK: - Output
     
     struct Output {
+        var isAuthorized: Bool?
         var capturedImage: UIImage?
         var isFrontCamera: Bool = false
     }
@@ -35,8 +36,8 @@ final class CaptureCameraViewModel {
     let captureSessionManager: CaptureSessionable
     
     // MARK: - Init
-    init(router: Router, captureSessionManager: CaptureSessionable) {
-        self.output = Output()
+    init(output: Output?, router: Router, captureSessionManager: CaptureSessionable) {
+        self.output = output ?? Output()
         self.router = router
         self.captureSessionManager = captureSessionManager
     }
