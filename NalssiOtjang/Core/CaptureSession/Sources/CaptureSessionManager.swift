@@ -2,13 +2,16 @@
 // https://docs.swift.org/swift-book
 
 import CoreCaptureSessionInterface
-@preconcurrency import AVFoundation
+import AVFoundation
 
 final public class CaptureSessionManager: NSObject, CaptureSessionable {
+    
+    typealias CaptureContinuation = CheckedContinuation<Data, Error>
     
     // MARK: - Private Properties
     
     private let photoOutput = AVCapturePhotoOutput()
+    private var continuation: CaptureContinuation?
     
     // MARK: - Init
     
@@ -56,22 +59,32 @@ final public class CaptureSessionManager: NSObject, CaptureSessionable {
         captureSession.stopRunning()
     }
     
-    public func capturePhoto() {
-        let settings = AVCapturePhotoSettings()
-        photoOutput.capturePhoto(with: settings, delegate: self)
+    public func capturePhoto() async throws -> Data {
+        return try await withCheckedThrowingContinuation { continuation in
+            self.continuation = continuation
+            let settings = AVCapturePhotoSettings()
+            photoOutput.capturePhoto(with: settings, delegate: self)
+        }
     }
 }
 
-
+// MARK: - AVCapturePhotoCaptureDelegate
 
 extension CaptureSessionManager: AVCapturePhotoCaptureDelegate {
-    public func photoOutput(
-        _ output: AVCapturePhotoOutput,
-        didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings,
-        error: (
-            any Error
-        )?
-    ) {
-        // TODO: image return
+    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: (any Error)?) {
+        
+        defer {
+            self.continuation = nil
+        }
+        
+        if let error = error {
+            continuation?.resume(throwing: error)
+            return
+        }
+        
+        if let imageData = photo.fileDataRepresentation() {
+            continuation?.resume(returning: imageData)
+        }
     }
 }
+

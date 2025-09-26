@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreCaptureSessionInterface
 import SharedDesignSystem
 
 public struct CaptureCameraView: View {
@@ -21,14 +20,10 @@ public struct CaptureCameraView: View {
         
         VStack(spacing: Constant.RootVStack.spacing) {
             
-            Text(Constant.ExplainText.text)
-                .foregroundStyle(Color.customColor(.neutral(.white)))
-                .padding(.top, Constant.ExplainText.topPadding)
-            
             CameraPreview(session: viewModel.captureSessionManager.captureSession)
             
             Button {
-                
+                viewModel.action(.captureButtonTapped)
             } label: {
                 Circle()
                     .stroke(Color.customColor(.neutral(.darkGray)), lineWidth: Constant.CaptureButton.lineWidth)
@@ -36,8 +31,23 @@ public struct CaptureCameraView: View {
                     .frame(width: Constant.CaptureButton.size, height: Constant.CaptureButton.size)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(Constant.ExplainText.text)
+                    .foregroundStyle(Color.customColor(.neutral(.white)))
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                if !viewModel.output.xButtonHidden {
+                    NOXButton {
+                        viewModel.action(.xButtonTapped)
+                    }
+                }
+            }
+        }
         .setBackgroundBlackIgnoreSafeArea()
-        .navigationBarBackButtonHidden()
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(!viewModel.output.xButtonHidden)
     }
 }
 
@@ -51,7 +61,7 @@ extension CaptureCameraView {
         }
         
         fileprivate enum ExplainText {
-            static let text: String = "상하의가 잘 보이게 사진을 찍어주세요"
+            static let text: String = "옷이 잘 보이도록 사진을 찍어주세요"
             static let topPadding: CGFloat = 10
         }
         

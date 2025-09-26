@@ -7,11 +7,11 @@
 
 import AVFoundation
 
-public protocol CaptureSessionable: Sendable {
+public protocol CaptureSessionable {
     var captureSession: AVCaptureSession { get }
     
     func getIsAuthorized() async -> Bool
     func setUpCaptureSession() async
     func stopRunning()
-    func capturePhoto()
+    func capturePhoto() async throws -> Data
 }

@@ -5,20 +5,26 @@
 //  Created by 정지훈 on 9/23/25.
 //
 
-import Foundation
+import UIKit.UIImage
 import CoreRouterInterface
 import CoreCaptureSessionInterface
+import CoreLog
 
+@Observable @MainActor
 public final class CaptureCameraViewModel {
     
     // MARK: - Input
     
     enum Input {
+        case xButtonTapped
+        case captureButtonTapped
     }
     
     // MARK: - Output
     
     struct Output {
+        var xButtonHidden: Bool = false
+        var capturedImage: UIImage?
     }
     
     private(set) var output: Output
@@ -38,6 +44,17 @@ public final class CaptureCameraViewModel {
     
     func action(_ input: Input) {
         switch input {
+        case .xButtonTapped:
+            break
+        case .captureButtonTapped:
+            Task { [manager = captureSessionManager] in
+                do {
+                    let data = try await manager.capturePhoto()
+                    output.capturedImage = UIImage(data: data)
+                } catch {
+                    Log.error("CaptureCameraError")
+                }
+            }
         }
     }
 }
