@@ -29,11 +29,13 @@ public struct NORoundedRectangleButton: NOButton {
         } label: {
             Text(text)
                 .foregroundStyle(foregroundColor)
-                .font(.headline)
+                .font(.system(size: 20, weight: .medium))
         }
         .frame(maxWidth: buttonSize?.width, maxHeight: buttonSize?.height)
-        .background(backgroundColor)
-        .clipShape(.capsule)
+        .background(
+            RoundedRectangle(cornerRadius: 20)
+                .fill(backgroundColor ?? .clear)
+        )
     }
 }
 
@@ -44,7 +46,7 @@ extension NORoundedRectangleButton {
         static let textColor: Color = .customColor(.neutral(.white))
         static let backgroundColor: Color = .customColor(.primary(.main))
         static let width: CGFloat = .infinity
-        static let height: CGFloat = 40
+        static let height: CGFloat = 60
     }
 }
 
