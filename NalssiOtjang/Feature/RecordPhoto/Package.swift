@@ -24,6 +24,10 @@ let package = Package(
         .package(
             name: "CoreLog",
             path: "../Core/Log"
+        ),
+        .package(
+            name: "SharedUtil",
+            path: "../Shared/Util"
         )
     ],
     targets: [
@@ -42,6 +46,10 @@ let package = Package(
                     name: "CoreLog",
                     package: "CoreLog"
                 ),
+                .product(
+                    name: "SharedUtil",
+                    package: "SharedUtil"
+                )
             ]
         )
     ]

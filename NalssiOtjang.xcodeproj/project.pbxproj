@@ -58,6 +58,7 @@
 				Shared/DesignSystem,
 				Shared/Example/DesignSystemExample/DesignSystemExampleApp.swift,
 				Shared/Example/DesignSystemExample/View/DesignSystemExampleView.swift,
+				Shared/Util,
 			);
 			target = F449CA2E2E5F209E00A1FDFF /* NalssiOtjang */;
 		};

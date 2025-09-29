@@ -9,6 +9,7 @@ import UIKit.UIImage
 import CoreRouterInterface
 import CoreCaptureSessionInterface
 import CoreLog
+import SharedUtil
 
 @Observable @MainActor
 final class CaptureCameraViewModel {
@@ -25,7 +26,8 @@ final class CaptureCameraViewModel {
     // MARK: - Output
     
     struct Output {
-        var isShowTutorialAlert: Bool = true
+        @UserDefaultsWrapper(key: "isShowTutorialAlert", defaultValue: true)
+        var isShowTutorialAlert: Bool
         var isAuthorized: Bool = false
         var capturedImage: UIImage?
         var isFrontCamera: Bool = false
