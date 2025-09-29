@@ -22,18 +22,31 @@ struct RecordPhotoExampleApp: App {
         WindowGroup {
             VStack {
                 Button("사진 찍기") {
-                    isToggle.toggle()
+                    router.fullScreenCover(RecordPhotoRoute.recordPhoto)
                 }
             }
-            .fullScreenCover(isPresented: $isToggle) {
-                RecordPhotoRootView(
-                    viewModel: RecordPhotoRootViewModel(
-                        router: router,
-                        captureSessionManager: captureSessionManager
-                    )
+            .fullScreenCover(
+                isPresented: Binding(
+                    get: { router.presentedRoute != nil },
+                    set: { isPresented in
+                        if !isPresented { router.dismiss() }
+                    }
                 )
+            ) {
+                switch router.presentedRoute as? RecordPhotoRoute {
+                case .recordPhoto:
+                    RecordPhotoRootView(
+                        viewModel: RecordPhotoRootViewModel(
+                            router: router,
+                            captureSessionManager: captureSessionManager
+                        )
+                    )
+                default:
+                    EmptyView()
+                }
             }
         }
+        
     }
 }
 

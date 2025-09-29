@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreRouterInterface
 
-enum RecordPhotoRoute: Route {
+public enum RecordPhotoRoute: Route {
     case validatePhoto
     case choiceClothesIcon
     case recordPhoto

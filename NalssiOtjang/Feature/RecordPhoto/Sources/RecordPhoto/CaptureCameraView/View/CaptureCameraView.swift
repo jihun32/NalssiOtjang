@@ -17,30 +17,42 @@ struct CaptureCameraView: View {
     }
     
     var body: some View {
-        VStack(spacing: Constant.RootVStack.spacing) {
-            
-            Text(Constant.ExplainText.text)
-                .foregroundStyle(Color.customColor(.neutral(.white)))
-                .padding(.top, Constant.ExplainText.topPadding)
-            
-            if let isAuthorized = viewModel.output.isAuthorized  {
-                if isAuthorized {
+        ZStack {
+            VStack(spacing: Constant.RootVStack.spacing) {
+                
+                if !viewModel.output.isShowTutorialAlert {
+                    Text(Constant.ExplainText.text)
+                        .foregroundStyle(Color.customColor(.neutral(.white)))
+                        .padding(.top, Constant.ExplainText.topPadding)
+                }
+                
+                if viewModel.output.isAuthorized {
                     CameraPreview(session: viewModel.captureSessionManager.captureSession)
-                        .padding(.top, Constant.CameraPreview.topPadding)
-                } else {
-                    // TODO: - Alert 띄우고 권한창으로 보내기
+                }
+                
+                Spacer()
+                
+                Button {
+                    viewModel.action(.captureButtonTapped)
+                } label: {
+                    Circle()
+                        .stroke(Color.customColor(.neutral(.darkGray)), lineWidth: Constant.CaptureButton.lineWidth)
+                        .fill(Color.customColor(.neutral(.white)))
+                        .frame(width: Constant.CaptureButton.size, height: Constant.CaptureButton.size)
                 }
             }
             
-            Spacer()
-            
-            Button {
-                viewModel.action(.captureButtonTapped)
-            } label: {
-                Circle()
-                    .stroke(Color.customColor(.neutral(.darkGray)), lineWidth: Constant.CaptureButton.lineWidth)
-                    .fill(Color.customColor(.neutral(.white)))
-                    .frame(width: Constant.CaptureButton.size, height: Constant.CaptureButton.size)
+            if viewModel.output.isAuthorized && viewModel.output.isShowTutorialAlert {
+                NOAlertView(
+                    title: Constant.AlertView.title,
+                    image: NOImage.normal(.recordPhoto(.recordPhotoExpain)).image,
+                    buttonText: Constant.AlertView.buttonTitle
+                ) {
+                    withAnimation(.easeInOut(duration: Constant.AlertView.animationDuration)) {
+                        viewModel.action(.tutorialOkButtonTapped)
+                    }
+                }
+                .zIndex(1)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -68,6 +80,7 @@ struct CaptureCameraView: View {
             }
             .sharedBackgroundVisibility(.hidden)
         }
+        .toolbar(viewModel.output.isShowTutorialAlert ? .hidden : .visible, for: .bottomBar)
     }
 }
 
@@ -91,6 +104,12 @@ extension CaptureCameraView {
         enum CaptureButton {
             static let lineWidth: CGFloat = 10
             static let size: CGFloat = 60
+        }
+        
+        enum AlertView {
+            static let title: String = "옷이 잘 보이도록 사진을 찍어주세요!"
+            static let buttonTitle: String = "확인"
+            static let animationDuration: TimeInterval = 0.2
         }
         
         enum ToolBarButton {

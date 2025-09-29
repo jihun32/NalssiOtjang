@@ -19,12 +19,14 @@ final class CaptureCameraViewModel {
         case captureButtonTapped
         case xButtonTapped
         case switchButtonTapped
+        case tutorialOkButtonTapped
     }
     
     // MARK: - Output
     
     struct Output {
-        var isAuthorized: Bool?
+        var isShowTutorialAlert: Bool = true
+        var isAuthorized: Bool = false
         var capturedImage: UIImage?
         var isFrontCamera: Bool = false
     }
@@ -32,10 +34,12 @@ final class CaptureCameraViewModel {
     private(set) var output: Output
     
     // MARK: - Dependencies
+    
     var router: Router
     let captureSessionManager: CaptureSessionable
     
     // MARK: - Init
+    
     init(output: Output?, router: Router, captureSessionManager: CaptureSessionable) {
         self.output = output ?? Output()
         self.router = router
@@ -56,13 +60,15 @@ final class CaptureCameraViewModel {
                 }
             }
         case .xButtonTapped:
-            break
+            router.dismiss()
             
         case .switchButtonTapped:
             Task { [isFrontCamera = output.isFrontCamera, manager = captureSessionManager] in
                 output.isFrontCamera = !isFrontCamera
                 await manager.switchCamera(output.isFrontCamera)
             }
+        case .tutorialOkButtonTapped:
+            output.isShowTutorialAlert = false
         }
     }
 }
