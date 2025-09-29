@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAF5AECD2E8135F2007759B6 /* FeatureRecordPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */; };
+		CAF5AECF2E8231C1007759B6 /* CoreRouter in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AECE2E8231C1007759B6 /* CoreRouter */; };
+		CAF5AEF72E8256A4007759B6 /* CoreCaptureSession in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AEF62E8256A4007759B6 /* CoreCaptureSession */; };
+		F4C178832E798FCA004DAC5C /* CaptureSessionFeature in Frameworks */ = {isa = PBXBuildFile; productRef = F4C178822E798FCA004DAC5C /* CaptureSessionFeature */; };
 		F4C6571A2E6DAB2500B26139 /* SharedDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = F4C657192E6DAB2500B26139 /* SharedDesignSystem */; };
 /* End PBXBuildFile section */
 
@@ -28,20 +32,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CABC307E2E7AE60900C6C848 /* RecordPhotoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecordPhotoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449CA2F2E5F209E00A1FDFF /* NalssiOtjang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NalssiOtjang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449CA3E2E5F20A000A1FDFF /* NalssiOtjangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NalssiOtjangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449CA482E5F20A000A1FDFF /* NalssiOtjangUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NalssiOtjangUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4C1786F2E798A4C004DAC5C /* CaptureSessionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaptureSessionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C6570E2E6DAB1C00B26139 /* DesignSystemExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignSystemExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CABC30902E7AE60F00C6C848 /* Exceptions for "NalssiOtjang" folder in "RecordPhotoExample" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Feature/Examples/RecordPhotoExample/RecordPhotoExampleApp.swift,
+			);
+			target = CABC307D2E7AE60900C6C848 /* RecordPhotoExample */;
+		};
 		F4A36B4E2E6713BB009A76AD /* Exceptions for "NalssiOtjang" folder in "NalssiOtjang" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Core/Log,
+				Core/Router,
+				Feature/Examples/RecordPhotoExample/RecordPhotoExampleApp.swift,
+				Feature/RecordPhoto,
 				Shared/DesignSystem,
 				Shared/Example/DesignSystemExample/DesignSystemExampleApp.swift,
 				Shared/Example/DesignSystemExample/View/DesignSystemExampleView.swift,
+				Shared/Util,
 			);
 			target = F449CA2E2E5F209E00A1FDFF /* NalssiOtjang */;
 		};
@@ -62,6 +79,7 @@
 			exceptions = (
 				F4A36B4E2E6713BB009A76AD /* Exceptions for "NalssiOtjang" folder in "NalssiOtjang" target */,
 				F4C657232E6DAB5100B26139 /* Exceptions for "NalssiOtjang" folder in "DesignSystemExample" target */,
+				CABC30902E7AE60F00C6C848 /* Exceptions for "NalssiOtjang" folder in "RecordPhotoExample" target */,
 			);
 			path = NalssiOtjang;
 			sourceTree = "<group>";
@@ -69,6 +87,16 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CABC307B2E7AE60900C6C848 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAF5AECF2E8231C1007759B6 /* CoreRouter in Frameworks */,
+				CAF5AEF72E8256A4007759B6 /* CoreCaptureSession in Frameworks */,
+				CAF5AECD2E8135F2007759B6 /* FeatureRecordPhoto in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F449CA2C2E5F209E00A1FDFF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,6 +115,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4C1786C2E798A4C004DAC5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4C178832E798FCA004DAC5C /* CaptureSessionFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +153,8 @@
 				F449CA3E2E5F20A000A1FDFF /* NalssiOtjangTests.xctest */,
 				F449CA482E5F20A000A1FDFF /* NalssiOtjangUITests.xctest */,
 				F4C6570E2E6DAB1C00B26139 /* DesignSystemExample.app */,
+				F4C1786F2E798A4C004DAC5C /* CaptureSessionExample.app */,
+				CABC307E2E7AE60900C6C848 /* RecordPhotoExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,6 +169,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CABC307D2E7AE60900C6C848 /* RecordPhotoExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CABC30862E7AE60A00C6C848 /* Build configuration list for PBXNativeTarget "RecordPhotoExample" */;
+			buildPhases = (
+				CABC307A2E7AE60900C6C848 /* Sources */,
+				CABC307B2E7AE60900C6C848 /* Frameworks */,
+				CABC307C2E7AE60900C6C848 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RecordPhotoExample;
+			packageProductDependencies = (
+				CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */,
+				CAF5AECE2E8231C1007759B6 /* CoreRouter */,
+				CAF5AEF62E8256A4007759B6 /* CoreCaptureSession */,
+			);
+			productName = RecordPhotoExample;
+			productReference = CABC307E2E7AE60900C6C848 /* RecordPhotoExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F449CA2E2E5F209E00A1FDFF /* NalssiOtjang */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F449CA522E5F20A000A1FDFF /* Build configuration list for PBXNativeTarget "NalssiOtjang" */;
@@ -193,6 +253,26 @@
 			productReference = F449CA482E5F20A000A1FDFF /* NalssiOtjangUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F4C1786E2E798A4C004DAC5C /* CaptureSessionExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4C178772E798A4D004DAC5C /* Build configuration list for PBXNativeTarget "CaptureSessionExample" */;
+			buildPhases = (
+				F4C1786B2E798A4C004DAC5C /* Sources */,
+				F4C1786C2E798A4C004DAC5C /* Frameworks */,
+				F4C1786D2E798A4C004DAC5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CaptureSessionExample;
+			packageProductDependencies = (
+				F4C178822E798FCA004DAC5C /* CaptureSessionFeature */,
+			);
+			productName = CaptureSessionExample;
+			productReference = F4C1786F2E798A4C004DAC5C /* CaptureSessionExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F4C6570D2E6DAB1C00B26139 /* DesignSystemExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4C657162E6DAB1D00B26139 /* Build configuration list for PBXNativeTarget "DesignSystemExample" */;
@@ -223,6 +303,9 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					CABC307D2E7AE60900C6C848 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 					F449CA2E2E5F209E00A1FDFF = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -233,6 +316,9 @@
 					F449CA472E5F20A000A1FDFF = {
 						CreatedOnToolsVersion = 26.0;
 						TestTargetID = F449CA2E2E5F209E00A1FDFF;
+					};
+					F4C1786E2E798A4C004DAC5C = {
+						CreatedOnToolsVersion = 26.0;
 					};
 					F4C6570D2E6DAB1C00B26139 = {
 						CreatedOnToolsVersion = 26.0;
@@ -259,11 +345,20 @@
 				F449CA3D2E5F20A000A1FDFF /* NalssiOtjangTests */,
 				F449CA472E5F20A000A1FDFF /* NalssiOtjangUITests */,
 				F4C6570D2E6DAB1C00B26139 /* DesignSystemExample */,
+				F4C1786E2E798A4C004DAC5C /* CaptureSessionExample */,
+				CABC307D2E7AE60900C6C848 /* RecordPhotoExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CABC307C2E7AE60900C6C848 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F449CA2D2E5F209E00A1FDFF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +380,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F4C1786D2E798A4C004DAC5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4C6570C2E6DAB1C00B26139 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,6 +397,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CABC307A2E7AE60900C6C848 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F449CA2B2E5F209E00A1FDFF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +419,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F449CA442E5F20A000A1FDFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4C1786B2E798A4C004DAC5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,6 +455,72 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CABC30872E7AE60A00C6C848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.OndoOtjang.RecordPhotoExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CABC30882E7AE60A00C6C848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.OndoOtjang.RecordPhotoExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F449CA502E5F20A000A1FDFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -470,6 +652,7 @@
 				DEVELOPMENT_TEAM = WBG9V97XP4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "날씨옷장을 더 잘 활용할 수 있도록 카메라 접근 권한을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -502,6 +685,7 @@
 				DEVELOPMENT_TEAM = WBG9V97XP4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "날씨옷장을 더 잘 활용할 수 있도록 카메라 접근 권한을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -608,6 +792,70 @@
 			};
 			name = Release;
 		};
+		F4C178782E798A4D004DAC5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.CaptureSessionExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4C178792E798A4D004DAC5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.CaptureSessionExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F4C657172E6DAB1D00B26139 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -675,6 +923,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CABC30862E7AE60A00C6C848 /* Build configuration list for PBXNativeTarget "RecordPhotoExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CABC30872E7AE60A00C6C848 /* Debug */,
+				CABC30882E7AE60A00C6C848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F449CA2A2E5F209E00A1FDFF /* Build configuration list for PBXProject "NalssiOtjang" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -711,6 +968,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		F4C178772E798A4D004DAC5C /* Build configuration list for PBXNativeTarget "CaptureSessionExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4C178782E798A4D004DAC5C /* Debug */,
+				F4C178792E798A4D004DAC5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F4C657162E6DAB1D00B26139 /* Build configuration list for PBXNativeTarget "DesignSystemExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -723,6 +989,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FeatureRecordPhoto;
+		};
+		CAF5AECE2E8231C1007759B6 /* CoreRouter */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreRouter;
+		};
+		CAF5AEF62E8256A4007759B6 /* CoreCaptureSession */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreCaptureSession;
+		};
+		F4C178822E798FCA004DAC5C /* CaptureSessionFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CaptureSessionFeature;
+		};
 		F4C657192E6DAB2500B26139 /* SharedDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SharedDesignSystem;

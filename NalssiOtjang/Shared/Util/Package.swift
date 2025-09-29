@@ -4,24 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "CoreLog",
+    name: "SharedUtil",
     platforms: [
         .iOS(.v26)
     ],
     products: [
         .library(
-            name: "CoreLog",
-            targets: ["CoreLog"]
+            name: "SharedUtil",
+            targets: ["SharedUtil"]
         )
     ],
     targets: [
         .target(
-            name: "CoreLog",
-            path: "Sources"
-        ),
-        .testTarget(
-            name: "LogTests",
-            dependencies: ["CoreLog"]
-        ),
+            name: "SharedUtil"
+        )
     ]
 )
