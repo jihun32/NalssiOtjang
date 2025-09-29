@@ -21,6 +21,8 @@ final class CaptureCameraViewModel {
         case xButtonTapped
         case switchButtonTapped
         case tutorialOkButtonTapped
+        case retakeButtonTapped
+        case usePhotoButtonTapped
     }
     
     // MARK: - Output
@@ -31,6 +33,7 @@ final class CaptureCameraViewModel {
         var isAuthorized: Bool = false
         var capturedImage: UIImage?
         var isFrontCamera: Bool = false
+        var isShowBottomToolBar: Bool { isShowTutorialAlert || capturedImage != nil }
     }
     
     private(set) var output: Output
@@ -55,8 +58,10 @@ final class CaptureCameraViewModel {
         case .captureButtonTapped:
             Task { [manager = captureSessionManager] in
                 do {
+                    Log.debug("123")
                     let data = try await manager.capturePhoto()
                     output.capturedImage = UIImage(data: data)
+                    Log.debug("456")
                 } catch {
                     Log.error("CaptureCameraError")
                 }
@@ -71,6 +76,11 @@ final class CaptureCameraViewModel {
             }
         case .tutorialOkButtonTapped:
             output.isShowTutorialAlert = false
+            
+        case .retakeButtonTapped:
+            break
+        case .usePhotoButtonTapped:
+            break
         }
     }
 }

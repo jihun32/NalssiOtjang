@@ -13,8 +13,11 @@ struct LiveCameraView: View {
     let isAuthorized: Bool
     let isShowTutorialAlert: Bool
     let sessionManager: CaptureSessionable
-    let onCapture: () -> Void
-    let onTutorialOK: () -> Void
+    let isShowBottomToolBar: Bool
+    let captureButtonTapped: () -> Void
+    let tutorialOKButtonTapped: () -> Void
+    let switchButtonTapped: () -> Void
+    let xButtonTapped: () -> Void
 
     var body: some View {
         ZStack {
@@ -26,12 +29,12 @@ struct LiveCameraView: View {
                 }
 
                 if isAuthorized {
-                    CameraPreview(session: session)
+                    CameraPreview(session: sessionManager.captureSession)
                 }
 
                 Spacer()
 
-                Button(action: onCapture) {
+                Button(action: captureButtonTapped) {
                     Circle()
                         .stroke(Color.customColor(.neutral(.darkGray)),
                                 lineWidth: Constant.CaptureButton.lineWidth)
@@ -48,16 +51,42 @@ struct LiveCameraView: View {
                     buttonText: Constant.AlertView.buttonTitle
                 ) {
                     withAnimation(.easeInOut(duration: Constant.AlertView.animationDuration)) {
-                        onTutorialOK()
+                        tutorialOKButtonTapped()
                     }
                 }
                 .zIndex(1)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                NOToolBarButton(
+                    image: Image(systemName: Constant.ToolBarButton.xButtonimageName),
+                    imageSize: Constant.ToolBarButton.xButtonImageSize,
+                    foregroundColor: .customColor(.neutral(.white))) {
+                        xButtonTapped()
+                    }
+            }
+            .sharedBackgroundVisibility(.hidden)
+            
+            ToolbarSpacer(.flexible, placement: .bottomBar)
+            
+            ToolbarItem(placement: .bottomBar) {
+                NOToolBarButton(
+                    image: Image(systemName: Constant.ToolBarButton.switchButtonimageName),
+                    imageSize: Constant.ToolBarButton.switchButtonImageSize,
+                    foregroundColor: .customColor(.neutral(.white))) {
+                        switchButtonTapped()
+                    }
+            }
+            .sharedBackgroundVisibility(.hidden)
+        }
+        .toolbar(isShowBottomToolBar ? .hidden : .visible, for: .bottomBar)
     }
 }
 
-extension CameraLiveView {
+// MARK: - Constant
+
+extension LiveCameraView {
     fileprivate enum Constant {
         enum RootVStack {
             static let spacing: CGFloat = 10
