@@ -58,14 +58,13 @@ final class CaptureCameraViewModel {
         case .captureButtonTapped:
             Task { [manager = captureSessionManager] in
                 do {
-                    Log.debug("123")
                     let data = try await manager.capturePhoto()
                     output.capturedImage = UIImage(data: data)
-                    Log.debug("456")
                 } catch {
                     Log.error("CaptureCameraError")
                 }
             }
+            
         case .xButtonTapped:
             router.dismiss()
             
@@ -78,9 +77,10 @@ final class CaptureCameraViewModel {
             output.isShowTutorialAlert = false
             
         case .retakeButtonTapped:
-            break
+            output.capturedImage = nil
+            
         case .usePhotoButtonTapped:
-            break
+            router.push(RecordPhotoRoute.validatePhoto)
         }
     }
 }
