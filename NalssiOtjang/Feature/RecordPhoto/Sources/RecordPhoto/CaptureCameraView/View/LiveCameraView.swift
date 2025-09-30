@@ -11,18 +11,18 @@ import CoreCaptureSessionInterface
 
 struct LiveCameraView: View {
     let isAuthorized: Bool
-    let isShowTutorialAlert: Bool
+    let isShowingTutorialAlert: Bool
     let sessionManager: CaptureSessionable
-    let isShowBottomToolBar: Bool
-    let captureButtonTapped: () -> Void
-    let tutorialOKButtonTapped: () -> Void
-    let switchButtonTapped: () -> Void
-    let xButtonTapped: () -> Void
+    let isShowingBottomToolBar: Bool
+    let onCapture: () -> Void
+    let onTutorialOK: () -> Void
+    let onSwitchCameara: () -> Void
+    let onDismissCamera: () -> Void
 
     var body: some View {
         ZStack {
             VStack(spacing: Constant.RootVStack.spacing) {
-                if !isShowTutorialAlert {
+                if !isShowingTutorialAlert {
                     Text(Constant.ExplainText.text)
                         .foregroundStyle(Color.customColor(.neutral(.white)))
                         .padding(.top, Constant.ExplainText.topPadding)
@@ -34,7 +34,7 @@ struct LiveCameraView: View {
 
                 Spacer()
 
-                Button(action: captureButtonTapped) {
+                Button(action: onCapture) {
                     Circle()
                         .stroke(Color.customColor(.neutral(.darkGray)),
                                 lineWidth: Constant.CaptureButton.lineWidth)
@@ -44,14 +44,14 @@ struct LiveCameraView: View {
                 }
             }
 
-            if isAuthorized && isShowTutorialAlert {
+            if isAuthorized && isShowingTutorialAlert {
                 NOAlertView(
                     title: Constant.AlertView.title,
                     image: NOImage.normal(.recordPhoto(.recordPhotoExpain)).image,
                     buttonText: Constant.AlertView.buttonTitle
                 ) {
                     withAnimation(.easeInOut(duration: Constant.AlertView.animationDuration)) {
-                        tutorialOKButtonTapped()
+                        onTutorialOK()
                     }
                 }
                 .zIndex(1)
@@ -63,7 +63,7 @@ struct LiveCameraView: View {
                     image: Image(systemName: Constant.ToolBarButton.xButtonimageName),
                     imageSize: Constant.ToolBarButton.xButtonImageSize,
                     foregroundColor: .customColor(.neutral(.white))) {
-                        xButtonTapped()
+                        onDismissCamera()
                     }
             }
             .sharedBackgroundVisibility(.hidden)
@@ -75,12 +75,12 @@ struct LiveCameraView: View {
                     image: Image(systemName: Constant.ToolBarButton.switchButtonimageName),
                     imageSize: Constant.ToolBarButton.switchButtonImageSize,
                     foregroundColor: .customColor(.neutral(.white))) {
-                        switchButtonTapped()
+                        onSwitchCameara()
                     }
             }
             .sharedBackgroundVisibility(.hidden)
         }
-        .toolbar(isShowBottomToolBar ? .hidden : .visible, for: .bottomBar)
+        .toolbar(isShowingBottomToolBar ? .hidden : .visible, for: .bottomBar)
     }
 }
 

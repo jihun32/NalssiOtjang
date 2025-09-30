@@ -11,8 +11,8 @@ import SharedDesignSystem
 struct CapturedCameraView: View {
     
     let capturedImage: UIImage
-    let retakeButtonTapped: () -> Void
-    let usePhotoButtonTapped: () -> Void
+    let onRetake: () -> Void
+    let onUsePhoto: () -> Void
     
     var body: some View {
         VStack(spacing: 0) {
@@ -24,14 +24,14 @@ struct CapturedCameraView: View {
             Spacer()
             
             HStack {
-                Button(action: retakeButtonTapped) {
+                Button(action: onRetake) {
                     Text(Constant.Button.reTakeButtonTitle)
                         .foregroundStyle(Color.customColor(.neutral(.white)))
                 }
                 
                 Spacer()
                 
-                Button(action: usePhotoButtonTapped) {
+                Button(action: onUsePhoto) {
                     Text(Constant.Button.usePhotoButtonTitle)
                         .foregroundStyle(Color.customColor(.neutral(.white)))
                 }

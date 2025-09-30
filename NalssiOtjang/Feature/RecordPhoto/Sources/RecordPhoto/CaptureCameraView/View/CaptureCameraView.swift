@@ -10,7 +10,7 @@ import SharedDesignSystem
 
 struct CaptureCameraView: View {
     
-    private let viewModel: CaptureCameraViewModel
+    @Bindable private var viewModel: CaptureCameraViewModel
     
     init(viewModel: CaptureCameraViewModel) {
         self.viewModel = viewModel
@@ -21,32 +21,47 @@ struct CaptureCameraView: View {
             if let capturedImage = viewModel.output.capturedImage {
                 CapturedCameraView(
                     capturedImage: capturedImage,
-                    retakeButtonTapped: {
-                        viewModel.action(.retakeButtonTapped)
-                    },
-                    usePhotoButtonTapped: {
-                        viewModel.action(.usePhotoButtonTapped)
-                    }
+                    onRetake: { viewModel.action(.retakeButtonTapped) },
+                    onUsePhoto: { viewModel.action(.usePhotoButtonTapped) }
                 )
             } else {
                 LiveCameraView(
                     isAuthorized: viewModel.output.isAuthorized,
-                    isShowTutorialAlert: viewModel.output.isShowTutorialAlert,
+                    isShowingTutorialAlert: viewModel.output.isShowingTutorialAlert,
                     sessionManager: viewModel.captureSessionManager,
-                    isShowBottomToolBar: viewModel.output.isShowBottomToolBar,
-                    captureButtonTapped: {
-                        viewModel.action(.captureButtonTapped)
-                    }, tutorialOKButtonTapped: {
-                        viewModel.action(.tutorialOkButtonTapped)
-                    }, switchButtonTapped: {
-                        viewModel.action(.switchButtonTapped)
-                    }, xButtonTapped: {
-                        viewModel.action(.xButtonTapped)
-                    }
+                    isShowingBottomToolBar: viewModel.output.isShowingBottomToolBar,
+                    onCapture: { viewModel.action(.captureButtonTapped) },
+                    onTutorialOK: { viewModel.action(.tutorialOkButtonTapped) },
+                    onSwitchCameara: { viewModel.action(.switchButtonTapped) },
+                    onDismissCamera: { viewModel.action(.xButtonTapped) }
                 )
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .alert(isPresented: $viewModel.output.isShowingErrorAlet) {
+            Alert(
+                title: Text(Constant.ErrorAlert.title),
+                message: Text(Constant.ErrorAlert.message),
+                dismissButton: .default(
+                    Text(Constant.ErrorAlert.buttonTitle),
+                    action: {
+                        viewModel.action(.errorAlertButtonTapped)
+                    }
+                )
+            )
+        }
         .setBackgroundBlackIgnoreSafeArea()
+    }
+}
+
+// MARK: - Constant
+
+extension CaptureCameraView {
+    fileprivate enum Constant {
+        enum ErrorAlert {
+            static let title: String = "오류"
+            static let message: String = "사진 촬영 도중 예상치 못한 오류가 발생했습니다. 다시 시도해 주세요."
+            static let buttonTitle: String = "확인"
+        }
     }
 }
