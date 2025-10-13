@@ -86,7 +86,7 @@ final class CaptureCameraViewModel {
             output.capturedImage = nil
             
         case .usePhotoButtonTapped:
-            router.push(RecordPhotoRoute.validatePhoto)
+            router.push(RecordPhotoRoute.classifyPhoto)
             
         case .errorAlertButtonTapped:
             router.dismiss()
