@@ -97,7 +97,7 @@ extension CaptureSessionManager: AVCapturePhotoCaptureDelegate {
             self.continuation = nil
         }
         
-        if let error = error {
+        if let error {
             continuation?.resume(throwing: error)
             return
         }

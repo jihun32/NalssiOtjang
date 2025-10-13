@@ -18,6 +18,10 @@ let package = Package(
             path: "../Shared/DesignSystem"
         ),
         .package(
+            name: "CoreCaptureSessionInterface",
+            path: "../Core/CaptureSession"
+        ),
+        .package(
             name: "CoreRouterInterface",
             path: "../Core/Router"
         ),
@@ -41,6 +45,10 @@ let package = Package(
                 .product(
                     name: "CoreRouterInterface",
                     package: "CoreRouterInterface"
+                ),
+                .product(
+                    name: "CoreCaptureSessionInterface",
+                    package: "CoreCaptureSessionInterface"
                 ),
                 .product(
                     name: "CoreLog",

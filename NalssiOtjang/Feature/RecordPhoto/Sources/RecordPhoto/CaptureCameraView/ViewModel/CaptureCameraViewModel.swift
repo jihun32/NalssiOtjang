@@ -21,19 +21,27 @@ final class CaptureCameraViewModel {
         case xButtonTapped
         case switchButtonTapped
         case tutorialOkButtonTapped
+        case retakeButtonTapped
+        case usePhotoButtonTapped
+        case errorAlertButtonTapped
     }
     
     // MARK: - Output
     
     struct Output {
         @UserDefaultsWrapper(key: "isShowTutorialAlert", defaultValue: true)
-        var isShowTutorialAlert: Bool
+        var isShowingTutorialAlert: Bool
+        var isShowingErrorAlet: Bool = false
         var isAuthorized: Bool = false
         var capturedImage: UIImage?
-        var isFrontCamera: Bool = false
+        var isShowingBottomToolBar: Bool { isShowingTutorialAlert || capturedImage != nil }
     }
     
-    private(set) var output: Output
+    var output: Output
+    
+    // MARK: - Private Properties
+    
+    private var isFrontCamera: Bool = false
     
     // MARK: - Dependencies
     
@@ -58,19 +66,30 @@ final class CaptureCameraViewModel {
                     let data = try await manager.capturePhoto()
                     output.capturedImage = UIImage(data: data)
                 } catch {
-                    Log.error("CaptureCameraError")
+                    output.isShowingErrorAlet = true
+                    Log.error("CaptureCameraError: \(error.localizedDescription)")
                 }
             }
+            
         case .xButtonTapped:
             router.dismiss()
             
         case .switchButtonTapped:
-            Task { [isFrontCamera = output.isFrontCamera, manager = captureSessionManager] in
-                output.isFrontCamera = !isFrontCamera
-                await manager.switchCamera(output.isFrontCamera)
+            Task { [manager = captureSessionManager] in
+                isFrontCamera.toggle()
+                await manager.switchCamera(isFrontCamera)
             }
         case .tutorialOkButtonTapped:
-            output.isShowTutorialAlert = false
+            output.isShowingTutorialAlert = false
+            
+        case .retakeButtonTapped:
+            output.capturedImage = nil
+            
+        case .usePhotoButtonTapped:
+            router.push(RecordPhotoRoute.validatePhoto)
+            
+        case .errorAlertButtonTapped:
+            router.dismiss()
         }
     }
 }
