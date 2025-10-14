@@ -38,6 +38,8 @@ public struct RecordPhotoRootView: View {
     @ViewBuilder
     private func destinationView(_ route: RecordPhotoRoute) -> some View {
         switch route {
+        case .classifyPhoto:
+            ClassifyPhotoView()
         default: EmptyView()
         }
     }
