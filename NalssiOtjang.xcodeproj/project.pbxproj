@@ -52,6 +52,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Core/Log,
+				Core/MLImageClassifier,
 				Core/Router,
 				Feature/Examples/RecordPhotoExample/RecordPhotoExampleApp.swift,
 				Feature/RecordPhoto,
