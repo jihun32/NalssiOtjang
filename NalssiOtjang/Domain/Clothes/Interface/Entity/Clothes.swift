@@ -27,6 +27,11 @@ public struct Clothes {
         }
     }
     
+}
+
+// MARK: - Clothes Category
+
+extension Clothes {
     public enum Category {
         public enum Top: String {
             case sweatShirt = "sweat_shirt"
