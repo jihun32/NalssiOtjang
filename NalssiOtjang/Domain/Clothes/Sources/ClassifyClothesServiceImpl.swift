@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import DomainClassificationClothesInterface
+import DomainClothesInterface
 
 public struct ClassifyClothesServiceImpl: ClassifyClothesService {
     private let classifier: ClothesClassifier
@@ -15,7 +15,7 @@ public struct ClassifyClothesServiceImpl: ClassifyClothesService {
         self.classifier = classifier
     }
     
-    public func classify(image: Data) throws -> Clothes {
-        <#code#>
+    public func classify(imageData: Data) throws -> Clothes {
+        try classifier.classify(imageData: imageData)
     }
 }

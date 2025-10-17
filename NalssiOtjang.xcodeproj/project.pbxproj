@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA740FA72E9F7E2B00A306EF /* CoreMLImageClassifier in Frameworks */ = {isa = PBXBuildFile; productRef = CA740FA62E9F7E2B00A306EF /* CoreMLImageClassifier */; };
 		CAF5AECD2E8135F2007759B6 /* FeatureRecordPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */; };
 		CAF5AECF2E8231C1007759B6 /* CoreRouter in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AECE2E8231C1007759B6 /* CoreRouter */; };
 		CAF5AEF72E8256A4007759B6 /* CoreCaptureSession in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AEF62E8256A4007759B6 /* CoreCaptureSession */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA740F8F2E9F7D9E00A306EF /* MLImageClassificationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLImageClassificationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABC307E2E7AE60900C6C848 /* RecordPhotoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecordPhotoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449CA2F2E5F209E00A1FDFF /* NalssiOtjang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NalssiOtjang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F449CA3E2E5F20A000A1FDFF /* NalssiOtjangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NalssiOtjangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +43,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CA740FA12E9F7DA700A306EF /* Exceptions for "NalssiOtjang" folder in "MLImageClassificationExample" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/Examples/MLImageClassificationExample/Assets.xcassets,
+				Core/Examples/MLImageClassificationExample/ContentView.swift,
+				Core/Examples/MLImageClassificationExample/MLImageClassificationExampleApp.swift,
+			);
+			target = CA740F8E2E9F7D9E00A306EF /* MLImageClassificationExample */;
+		};
 		CABC30902E7AE60F00C6C848 /* Exceptions for "NalssiOtjang" folder in "RecordPhotoExample" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -51,9 +62,12 @@
 		F4A36B4E2E6713BB009A76AD /* Exceptions for "NalssiOtjang" folder in "NalssiOtjang" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Core/Examples/MLImageClassificationExample/Assets.xcassets,
+				Core/Examples/MLImageClassificationExample/ContentView.swift,
+				Core/Examples/MLImageClassificationExample/MLImageClassificationExampleApp.swift,
 				Core/Log,
-				Core/MLImageClassifier,
 				Core/Router,
+				Domain/Clothes,
 				Feature/Examples/RecordPhotoExample/RecordPhotoExampleApp.swift,
 				Feature/RecordPhoto,
 				Shared/DesignSystem,
@@ -81,6 +95,7 @@
 				F4A36B4E2E6713BB009A76AD /* Exceptions for "NalssiOtjang" folder in "NalssiOtjang" target */,
 				F4C657232E6DAB5100B26139 /* Exceptions for "NalssiOtjang" folder in "DesignSystemExample" target */,
 				CABC30902E7AE60F00C6C848 /* Exceptions for "NalssiOtjang" folder in "RecordPhotoExample" target */,
+				CA740FA12E9F7DA700A306EF /* Exceptions for "NalssiOtjang" folder in "MLImageClassificationExample" target */,
 			);
 			path = NalssiOtjang;
 			sourceTree = "<group>";
@@ -88,6 +103,14 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CA740F8C2E9F7D9E00A306EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA740FA72E9F7E2B00A306EF /* CoreMLImageClassifier in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CABC307B2E7AE60900C6C848 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,6 +179,7 @@
 				F4C6570E2E6DAB1C00B26139 /* DesignSystemExample.app */,
 				F4C1786F2E798A4C004DAC5C /* CaptureSessionExample.app */,
 				CABC307E2E7AE60900C6C848 /* RecordPhotoExample.app */,
+				CA740F8F2E9F7D9E00A306EF /* MLImageClassificationExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +194,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CA740F8E2E9F7D9E00A306EF /* MLImageClassificationExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA740F972E9F7D9F00A306EF /* Build configuration list for PBXNativeTarget "MLImageClassificationExample" */;
+			buildPhases = (
+				CA740F8B2E9F7D9E00A306EF /* Sources */,
+				CA740F8C2E9F7D9E00A306EF /* Frameworks */,
+				CA740F8D2E9F7D9E00A306EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MLImageClassificationExample;
+			packageProductDependencies = (
+				CA740FA62E9F7E2B00A306EF /* CoreMLImageClassifier */,
+			);
+			productName = MLImageClassificationExample;
+			productReference = CA740F8F2E9F7D9E00A306EF /* MLImageClassificationExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CABC307D2E7AE60900C6C848 /* RecordPhotoExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CABC30862E7AE60A00C6C848 /* Build configuration list for PBXNativeTarget "RecordPhotoExample" */;
@@ -304,6 +348,9 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					CA740F8E2E9F7D9E00A306EF = {
+						CreatedOnToolsVersion = 26.0;
+					};
 					CABC307D2E7AE60900C6C848 = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -348,11 +395,19 @@
 				F4C6570D2E6DAB1C00B26139 /* DesignSystemExample */,
 				F4C1786E2E798A4C004DAC5C /* CaptureSessionExample */,
 				CABC307D2E7AE60900C6C848 /* RecordPhotoExample */,
+				CA740F8E2E9F7D9E00A306EF /* MLImageClassificationExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CA740F8D2E9F7D9E00A306EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CABC307C2E7AE60900C6C848 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,6 +453,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CA740F8B2E9F7D9E00A306EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CABC307A2E7AE60900C6C848 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,6 +518,70 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CA740F982E9F7D9F00A306EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.MLImageClassificationExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA740F992E9F7D9F00A306EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WBG9V97XP4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = colin.MLImageClassificationExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CABC30872E7AE60A00C6C848 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -924,6 +1050,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CA740F972E9F7D9F00A306EF /* Build configuration list for PBXNativeTarget "MLImageClassificationExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA740F982E9F7D9F00A306EF /* Debug */,
+				CA740F992E9F7D9F00A306EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CABC30862E7AE60A00C6C848 /* Build configuration list for PBXNativeTarget "RecordPhotoExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -990,6 +1125,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CA740FA62E9F7E2B00A306EF /* CoreMLImageClassifier */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreMLImageClassifier;
+		};
 		CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FeatureRecordPhoto;

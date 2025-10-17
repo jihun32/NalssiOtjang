@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol ClothesClassifier {
-    func classify(image: Data) throws -> Clothes
+    func classify(imageData: Data) throws -> Clothes
 }
