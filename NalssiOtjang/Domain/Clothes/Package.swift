@@ -4,25 +4,26 @@
 import PackageDescription
 
 let package = Package(
-    name: "DomainClassificationClothesInterface",
+    name: "DomainClothes",
     platforms: [.iOS(.v26)],
     products: [
         .library(
-            name: "DomainClassificationClothesInterface",
-            targets: ["DomainClassificationClothesInterface"]
+            name: "DomainClothesInterface",
+            targets: ["DomainClothesInterface"]
         ),
         .library(
-            name: "DomainClassificationClothes",
-            targets: ["DomainClassificationClothes"]
+            name: "DomainClothes",
+            targets: ["DomainClothes"]
         )
     ],
     targets: [
         .target(
-            name: "DomainClassificationClothesInterface",
+            name: "DomainClothesInterface",
             path: "Interface"
         ),
         .target(
-            name: "DomainClassificationClothes",
+            name: "DomainClothes",
+            dependencies: ["DomainClothesInterface"],
             path: "Sources"
         )
     ]

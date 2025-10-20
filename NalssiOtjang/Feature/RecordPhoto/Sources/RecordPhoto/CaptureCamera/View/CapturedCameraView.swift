@@ -10,17 +10,19 @@ import SharedDesignSystem
 
 struct CapturedCameraView: View {
     
-    let capturedImage: UIImage
+    let capturedImage: Data
     let onRetake: () -> Void
     let onUsePhoto: () -> Void
     
     var body: some View {
         VStack(spacing: 0) {
-            Image(uiImage: capturedImage)
-                .resizable()
-                .scaledToFit()
-                .padding(.top, Constant.CapturedImage.topPadding)
-            
+            if let capturedImage = UIImage(data: capturedImage) {
+                Image(uiImage: capturedImage)
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.top, Constant.CapturedImage.topPadding)
+                
+            }
             Spacer()
             
             HStack {

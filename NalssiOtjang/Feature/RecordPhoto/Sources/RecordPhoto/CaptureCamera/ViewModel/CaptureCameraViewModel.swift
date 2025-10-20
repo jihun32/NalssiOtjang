@@ -5,11 +5,11 @@
 //  Created by 정지훈 on 9/23/25.
 //
 
-import UIKit.UIImage
 import CoreRouterInterface
 import CoreCaptureSessionInterface
 import CoreLog
 import SharedUtil
+import Foundation
 
 @Observable @MainActor
 final class CaptureCameraViewModel {
@@ -24,6 +24,7 @@ final class CaptureCameraViewModel {
         case retakeButtonTapped
         case usePhotoButtonTapped
         case errorAlertButtonTapped
+        case onAppear
     }
     
     // MARK: - Output
@@ -33,7 +34,7 @@ final class CaptureCameraViewModel {
         var isShowingTutorialAlert: Bool
         var isShowingErrorAlet: Bool = false
         var isAuthorized: Bool = false
-        var capturedImage: UIImage?
+        var capturedImage: Data?
         var isShowingBottomToolBar: Bool { isShowingTutorialAlert || capturedImage != nil }
     }
     
@@ -64,7 +65,7 @@ final class CaptureCameraViewModel {
             Task { [manager = captureSessionManager] in
                 do {
                     let data = try await manager.capturePhoto()
-                    output.capturedImage = UIImage(data: data)
+                    output.capturedImage = data
                 } catch {
                     output.isShowingErrorAlet = true
                     Log.error("CaptureCameraError: \(error.localizedDescription)")
@@ -90,6 +91,15 @@ final class CaptureCameraViewModel {
             
         case .errorAlertButtonTapped:
             router.dismiss()
+            
+        case .onAppear:
+            Task { [manager = captureSessionManager] in
+                let isAuthorized = await manager.getIsAuthorized()
+                if isAuthorized {
+                    await manager.setUpCaptureSession(position: .back)
+                }
+                output.isAuthorized = isAuthorized
+            }
         }
     }
 }
