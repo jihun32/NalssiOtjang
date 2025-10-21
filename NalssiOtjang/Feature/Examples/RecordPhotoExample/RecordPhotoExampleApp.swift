@@ -14,7 +14,7 @@ import CoreMLImageClassifier
 @main
 struct RecordPhotoExampleApp: App {
     let router = BaseRouter()
-    let captureSessionManager = CaptureSessionManager()
+    let captureSessionManager = CaptureSessionManagerImpl()
     let classifierManager = MLImageClassifierManagerImpl()
     @State var isToggle: Bool = false
     
@@ -57,7 +57,7 @@ struct RecordPhotoExampleApp: App {
     RecordPhotoRootView(
         diContianer: RecordPhotoDIContainer(
             dependenices: .init(
-                captureSessionManager: CaptureSessionManager(),
+                captureSessionManager: CaptureSessionManagerImpl(),
                 classifierManager: MLImageClassifierManagerImpl(),
                 router: BaseRouter()
             )

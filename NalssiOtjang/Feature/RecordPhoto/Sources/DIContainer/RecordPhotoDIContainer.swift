@@ -14,12 +14,12 @@ import CoreRouterInterface
 public final class RecordPhotoDIContainer {
     
     public struct Dependencies {
-        let captureSessionManager: CaptureSessionable
+        let captureSessionManager: CaptureSessionManager
         let classifierManager: MLImageClassifierManager
         let router: Router
         
         public init(
-            captureSessionManager: CaptureSessionable,
+            captureSessionManager: CaptureSessionManager,
             classifierManager: MLImageClassifierManager,
             router: Router
         ) {

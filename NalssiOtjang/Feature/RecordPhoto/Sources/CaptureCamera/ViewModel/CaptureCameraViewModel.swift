@@ -47,11 +47,11 @@ final class CaptureCameraViewModel {
     // MARK: - Dependencies
     
     var router: Router
-    let captureSessionManager: CaptureSessionable
+    let captureSessionManager: CaptureSessionManager
     
     // MARK: - Init
     
-    init(router: Router, captureSessionManager: CaptureSessionable) {
+    init(router: Router, captureSessionManager: CaptureSessionManager) {
         self.output = Output()
         self.router = router
         self.captureSessionManager = captureSessionManager
