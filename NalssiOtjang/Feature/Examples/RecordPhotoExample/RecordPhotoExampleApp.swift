@@ -9,13 +9,13 @@ import SwiftUI
 import FeatureRecordPhoto
 import CoreRouter
 import CoreCaptureSession
-import Foundation
+import CoreMLImageClassifier
 
 @main
 struct RecordPhotoExampleApp: App {
     let router = BaseRouter()
     let captureSessionManager = CaptureSessionManager()
-    
+    let classifierManager = MLImageClassifierManagerImpl()
     @State var isToggle: Bool = false
     
     var body: some Scene {
@@ -36,9 +36,12 @@ struct RecordPhotoExampleApp: App {
                 switch router.presentedRoute as? RecordPhotoRoute {
                 case .recordPhoto:
                     RecordPhotoRootView(
-                        viewModel: RecordPhotoRootViewModel(
-                            router: router,
-                            captureSessionManager: captureSessionManager
+                        diContianer: RecordPhotoDIContainer(
+                            dependenices: .init(
+                                captureSessionManager: captureSessionManager,
+                                classifierManager: classifierManager,
+                                router: router
+                            )
                         )
                     )
                 default:
@@ -52,9 +55,12 @@ struct RecordPhotoExampleApp: App {
 
 #Preview {
     RecordPhotoRootView(
-        viewModel: RecordPhotoRootViewModel(
-            router: BaseRouter(),
-            captureSessionManager: CaptureSessionManager()
+        diContianer: RecordPhotoDIContainer(
+            dependenices: .init(
+                captureSessionManager: CaptureSessionManager(),
+                classifierManager: MLImageClassifierManagerImpl(),
+                router: BaseRouter()
+            )
         )
     )
 }

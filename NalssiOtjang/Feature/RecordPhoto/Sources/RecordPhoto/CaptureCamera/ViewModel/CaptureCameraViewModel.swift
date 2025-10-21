@@ -51,8 +51,8 @@ final class CaptureCameraViewModel {
     
     // MARK: - Init
     
-    init(output: Output?, router: Router, captureSessionManager: CaptureSessionable) {
-        self.output = output ?? Output()
+    init(router: Router, captureSessionManager: CaptureSessionable) {
+        self.output = Output()
         self.router = router
         self.captureSessionManager = captureSessionManager
     }

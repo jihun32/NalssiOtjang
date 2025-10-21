@@ -10,23 +10,18 @@ import SwiftUI
 // MARK: - View
 
 public struct RecordPhotoRootView: View {
+    let diContianer: RecordPhotoDIContainer
     @State private var viewModel: RecordPhotoRootViewModel
-    @AppStorage("hasSeenRecordPhotoExplain") private var hasSeenRecordPhotoExplain: Bool = false
-    @State private var captureCameraViewModel: CaptureCameraViewModel
     
-    public init(viewModel: RecordPhotoRootViewModel) {
-        self.viewModel = viewModel
-        self.captureCameraViewModel = CaptureCameraViewModel(
-            output: nil,
-            router: viewModel.router,
-            captureSessionManager: viewModel.captureSessionManager
-        )
+    public init(diContianer: RecordPhotoDIContainer) {
+        self.diContianer = diContianer
+        viewModel = diContianer.makeRecordRootViewModel()
     }
     
     public var body: some View {
         NavigationStack(path: $viewModel.router.path) {
             CaptureCameraView(
-                viewModel: captureCameraViewModel
+                viewModel: diContianer.makeCaptureCameraViewModel()
             )
             .navigationDestination(for: RecordPhotoRoute.self) { route in
                 destinationView(route)
@@ -38,7 +33,7 @@ public struct RecordPhotoRootView: View {
     private func destinationView(_ route: RecordPhotoRoute) -> some View {
         switch route {
         case .classifyPhoto:
-            ClassifyPhotoView(imageData: captureCameraViewModel.output.capturedImage)
+            ClassifyPhotoView()
         default: EmptyView()
         }
     }

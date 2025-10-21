@@ -22,6 +22,10 @@ let package = Package(
             path: "../Core/CaptureSession"
         ),
         .package(
+            name: "CoreMLImageClassifierInterface",
+            path: "../Core/MLImageClassification"
+        ),
+        .package(
             name: "CoreRouterInterface",
             path: "../Core/Router"
         ),
@@ -49,6 +53,10 @@ let package = Package(
                 .product(
                     name: "CoreCaptureSessionInterface",
                     package: "CoreCaptureSessionInterface"
+                ),
+                .product(
+                    name: "CoreMLImageClassifierInterface",
+                    package: "CoreMLImageClassifierInterface"
                 ),
                 .product(
                     name: "CoreLog",
