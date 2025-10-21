@@ -18,6 +18,10 @@ let package = Package(
             path: "../Shared/DesignSystem"
         ),
         .package(
+            name: "DomainClothesInterface",
+            path: "../Domain/Clothes"
+        ),
+        .package(
             name: "CoreCaptureSessionInterface",
             path: "../Core/CaptureSession"
         ),
@@ -42,6 +46,10 @@ let package = Package(
         .target(
             name: "FeatureRecordPhoto",
             dependencies: [
+                .product(
+                    name: "DomainClothesInterface",
+                    package: "DomainClothesInterface"
+                ),
                 .product(
                     name: "SharedDesignSystem",
                     package: "SharedDesignSystem"
