@@ -34,8 +34,8 @@ final class CaptureCameraViewModel {
         var isShowingTutorialAlert: Bool
         var isShowingErrorAlet: Bool = false
         var isAuthorized: Bool = false
-        var capturedImage: Data?
-        var isShowingBottomToolBar: Bool { isShowingTutorialAlert || capturedImage != nil }
+        var capturedImageData: Data?
+        var isShowingBottomToolBar: Bool { isShowingTutorialAlert || capturedImageData != nil }
     }
     
     var output: Output
@@ -65,7 +65,7 @@ final class CaptureCameraViewModel {
             Task { [manager = captureSessionManager] in
                 do {
                     let data = try await manager.capturePhoto()
-                    output.capturedImage = data
+                    output.capturedImageData = data
                 } catch {
                     output.isShowingErrorAlet = true
                     Log.error("CaptureCameraError: \(error.localizedDescription)")
@@ -84,10 +84,11 @@ final class CaptureCameraViewModel {
             output.isShowingTutorialAlert = false
             
         case .retakeButtonTapped:
-            output.capturedImage = nil
+            output.capturedImageData = nil
             
         case .usePhotoButtonTapped:
-            router.push(RecordPhotoRoute.classifyPhoto)
+            guard let capturedImageData = output.capturedImageData else { break }
+            router.push(RecordPhotoRoute.classifyPhoto(imageData: capturedImageData))
             
         case .errorAlertButtonTapped:
             router.dismiss()
