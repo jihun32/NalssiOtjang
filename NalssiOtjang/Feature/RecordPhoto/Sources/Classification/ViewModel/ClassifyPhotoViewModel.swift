@@ -7,6 +7,7 @@
 
 import Foundation
 import DomainClothesInterface
+import CoreRouterInterface
 
 @Observable @MainActor
 public final class ClassifyPhotoViewModel {
@@ -14,11 +15,13 @@ public final class ClassifyPhotoViewModel {
     // MARK: - Input
     
     enum Input {
+        case onAppear
     }
     
     // MARK: - Output
     
     struct Output {
+        var isLoading: Bool = true
         var capturedImageData: Data
     }
     
@@ -26,11 +29,17 @@ public final class ClassifyPhotoViewModel {
     
     // MARK: - Dependencies
     
+    private let router: Router
     private let classifierService: ClassifyClothesService
     
     // MARK: - Init
     
-    init(capturedImageData: Data, classifierService: ClassifyClothesService) {
+    init(
+        router: Router,
+        capturedImageData: Data,
+        classifierService: ClassifyClothesService
+    ) {
+        self.router = router
         self.output = Output(capturedImageData: capturedImageData)
         self.classifierService = classifierService
     }
@@ -40,6 +49,11 @@ public final class ClassifyPhotoViewModel {
     
     func action(_ input: Input) {
         switch input {
+        case .onAppear:
+            Task {
+                try await Task.sleep(for: .seconds(3))
+                output.isLoading = false
+            }
         }
     }
 }
