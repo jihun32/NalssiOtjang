@@ -7,10 +7,9 @@
 
 import SwiftUI
 import CoreMLImageClassifier
-import DomainClothesInterface
 
 struct ContentView: View {
-    let classifier: MLImageClassifierManager = MLImageClassifierManager()
+    let classifier: MLImageClassifierManagerImpl = MLImageClassifierManagerImpl()
     let imageData = UIImage(resource: .test).pngData()!
     @State var texts: [String] = []
     
@@ -20,13 +19,7 @@ struct ContentView: View {
             
             Button("이미지 분석") {
                 texts = []
-                let clothes = try? classifier.classify(imageData: imageData)
-                [
-                    clothes?.top?.rawValue,
-                    clothes?.bottom?.rawValue,
-                    clothes?.dress?.rawValue,
-                    clothes?.outer?.rawValue
-                ]
+                try? classifier.classify(imageData: imageData)
                     .compactMap { $0 }
                     .forEach { texts.append($0) }
             }

@@ -8,25 +8,23 @@ let package = Package(
     platforms: [.iOS(.v26)],
     products: [
         .library(
+            name: "CoreMLImageClassifierInterface",
+            targets: ["CoreMLImageClassifierInterface"]
+        ),
+        .library(
             name: "CoreMLImageClassifier",
             targets: ["CoreMLImageClassifier"]
-        ),
-    ],
-    dependencies: [
-        .package(
-            name: "DomainClothesInterface",
-            path: "../Domain/Clothes"
         )
     ],
     targets: [
         .target(
+            name: "CoreMLImageClassifierInterface",
+            path: "Interface"
+        ),
+        .target(
             name: "CoreMLImageClassifier",
-            dependencies: [
-                .product(
-                    name: "DomainClothesInterface",
-                    package: "DomainClothesInterface"
-                )
-            ]
+            dependencies: ["CoreMLImageClassifierInterface"],
+            path: "Sources"
         )
     ]
 )

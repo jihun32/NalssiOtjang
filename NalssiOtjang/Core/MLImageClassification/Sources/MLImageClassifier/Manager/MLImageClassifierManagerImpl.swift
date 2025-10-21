@@ -8,14 +8,14 @@
 import Foundation
 import CoreML
 import Vision
-import DomainClothesInterface
 import CoreImage
+import CoreMLImageClassifierInterface
 
-public struct MLImageClassifierManager: ClothesClassifier {
+public struct MLImageClassifierManagerImpl: MLImageClassifierManager {
     
     public init() { }
     
-    public func classify(imageData: Data) throws -> Clothes {
+    public func classify(imageData: Data) throws -> [String] {
         do {
             var categories: [String] = []
             
@@ -31,7 +31,7 @@ public struct MLImageClassifierManager: ClothesClassifier {
                     .map { $0.identifier }
             }
             
-            return Clothes(categories: categories)
+            return categories
         } catch {
             throw error
         }
