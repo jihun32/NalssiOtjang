@@ -6,9 +6,10 @@
 //
 
 import CoreRouterInterface
+import Foundation
 
 public enum RecordPhotoRoute: Route {
-    case classifyPhoto
+    case classifyPhoto(imageData: Data)
     case choiceClothesIcon
     case recordPhoto
 }

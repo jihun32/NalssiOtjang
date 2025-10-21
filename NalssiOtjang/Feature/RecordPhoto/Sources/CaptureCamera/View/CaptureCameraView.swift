@@ -18,9 +18,9 @@ struct CaptureCameraView: View {
     
     var body: some View {
         ZStack {
-            if let capturedImage = viewModel.output.capturedImage {
+            if let capturedImageData = viewModel.output.capturedImageData {
                 CapturedCameraView(
-                    capturedImage: capturedImage,
+                    capturedImageData: capturedImageData,
                     onRetake: { viewModel.action(.retakeButtonTapped) },
                     onUsePhoto: { viewModel.action(.usePhotoButtonTapped) }
                 )
