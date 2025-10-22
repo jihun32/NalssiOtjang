@@ -34,7 +34,7 @@ struct ClassifyPhotoView: View {
                 ClothesCardView(
                     imageData: viewModel.output.capturedImageData,
                     dateString: "2025.10.20",
-                    category: "#니트 #긴바지",
+                    category: viewModel.output.categoryString,
                     weatherImage: "sun.max.fill",
                     weatherColor: .orange,
                     lowTemperature: 15,

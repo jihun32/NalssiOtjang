@@ -8,6 +8,7 @@
 import Foundation
 import DomainClothesInterface
 import CoreRouterInterface
+import CoreLog
 
 @Observable @MainActor
 public final class ClassifyPhotoViewModel {
@@ -23,6 +24,7 @@ public final class ClassifyPhotoViewModel {
     struct Output {
         var isLoading: Bool = true
         var capturedImageData: Data
+        var categoryString: String = ""
     }
     
     var output: Output
@@ -51,9 +53,31 @@ public final class ClassifyPhotoViewModel {
         switch input {
         case .onAppear:
             Task {
-                try await Task.sleep(for: .seconds(3))
-                output.isLoading = false
+                do {
+                    let clothes = try classifierService.classify(imageData: output.capturedImageData)
+                    output.categoryString = convertClothesToString(clothes: clothes)
+                    
+                    try await Task.sleep(for: .seconds(3))
+                    output.isLoading = false
+                } catch {
+                    Log.error("Classification Error: \(error.localizedDescription)")
+                }
             }
         }
+    }
+}
+
+// MARK: - Private Method
+
+extension ClassifyPhotoViewModel {
+    private func convertClothesToString(clothes: Clothes) -> String {
+        var categories: [String] = []
+        
+        if let top = clothes.top { categories.append(top.koreanName) }
+        if let outer = clothes.outer { categories.append(outer.koreanName) }
+        if let bottom = clothes.bottom { categories.append(bottom.koreanName) }
+        if let dress = clothes.dress { categories.append(dress.koreanName) }
+        
+        return "#" + categories.joined(separator: " #")
     }
 }
