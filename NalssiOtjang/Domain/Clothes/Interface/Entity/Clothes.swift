@@ -1,5 +1,5 @@
 //
-//  File 2.swift
+//  Clothes.swift
 //  DomainClassifyPhotoInterface
 //
 //  Created by 정지훈 on 10/13/25.
