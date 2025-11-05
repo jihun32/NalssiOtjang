@@ -14,9 +14,15 @@ let package = Package(
             targets: ["SharedDesignSystem"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/airbnb/lottie-spm.git", from: "4.5.2")
+    ],
     targets: [
         .target(
             name: "SharedDesignSystem",
+            dependencies: [
+                .product(name: "Lottie", package: "lottie-spm")
+            ],
             resources: [
                 .process("Resources")
             ]

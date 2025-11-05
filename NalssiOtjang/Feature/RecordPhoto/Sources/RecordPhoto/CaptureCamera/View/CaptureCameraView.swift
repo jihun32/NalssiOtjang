@@ -38,6 +38,9 @@ struct CaptureCameraView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            viewModel.action(.onAppear)
+        }
         .alert(isPresented: $viewModel.output.isShowingErrorAlet) {
             Alert(
                 title: Text(Constant.ErrorAlert.title),

@@ -12,14 +12,23 @@ import SwiftUI
 public struct NORoundedRectangleButton: NOButton {
 
     let text: String
-    let foregroundColor: Color = Constant.textColor
-    let backgroundColor: Color? = Constant.backgroundColor
-    let buttonSize: CGSize? = CGSize(width: Constant.width, height: Constant.height)
+    let foregroundColor: Color
+    let backgroundColor: Color?
+    let buttonSize: CGSize?
     
     let action: () -> Void
     
-    public init(text: String, action: @escaping () -> Void) {
+    public init(
+        text: String,
+        foregroundColor: Color? = nil,
+        backgroundColor: Color? = nil,
+        buttonSize: CGSize? = nil,
+        action: @escaping () -> Void
+    ) {
         self.text = text
+        self.foregroundColor = foregroundColor ?? Constant.textColor
+        self.backgroundColor = backgroundColor ?? Constant.backgroundColor
+        self.buttonSize = buttonSize ?? CGSize(width: Constant.width, height: Constant.height)
         self.action = action
     }
     
@@ -29,11 +38,11 @@ public struct NORoundedRectangleButton: NOButton {
         } label: {
             Text(text)
                 .foregroundStyle(foregroundColor)
-                .font(.system(size: 20, weight: .medium))
+                .font(.title2)
+                .frame(maxWidth: buttonSize?.width, maxHeight: buttonSize?.height)
         }
-        .frame(maxWidth: buttonSize?.width, maxHeight: buttonSize?.height)
         .background(
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: Constant.radius)
                 .fill(backgroundColor ?? .clear)
         )
     }
@@ -47,6 +56,7 @@ extension NORoundedRectangleButton {
         static let backgroundColor: Color = .customColor(.primary(.main))
         static let width: CGFloat = .infinity
         static let height: CGFloat = 60
+        static let radius: CGFloat = 16
     }
 }
 
