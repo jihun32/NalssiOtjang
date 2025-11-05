@@ -7,15 +7,21 @@
 
 import Foundation
 import DomainClothesInterface
+import CoreMLImageClassifierInterface
 
 public struct ClassifyClothesServiceImpl: ClassifyClothesService {
-    private let classifier: ClothesClassifier
+    private let classifier: MLImageClassifierManager
     
-    public init(classifier: ClothesClassifier) {
+    public init(classifier: MLImageClassifierManager) {
         self.classifier = classifier
     }
     
     public func classify(imageData: Data) throws -> Clothes {
-        try classifier.classify(imageData: imageData)
+        do {
+            let categories = try classifier.classify(imageData: imageData)
+            return Clothes(categories: categories)
+        } catch {
+            throw error
+        }
     }
 }

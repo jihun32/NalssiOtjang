@@ -29,11 +29,11 @@ public final class RecordPhotoRootViewModel {
     // MARK: - Dependencies
     
     var router: Router
-    let captureSessionManager: CaptureSessionable
+    let captureSessionManager: CaptureSessionManager
     
     // MARK: - Init
     
-    public init(router: Router, captureSessionManager: CaptureSessionable) {
+    public init(router: Router, captureSessionManager: CaptureSessionManager) {
         self.router = router
         self.captureSessionManager = captureSessionManager
         self.output = Output()

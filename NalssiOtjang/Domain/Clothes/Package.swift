@@ -16,6 +16,12 @@ let package = Package(
             targets: ["DomainClothes"]
         )
     ],
+    dependencies: [
+        .package(
+            name: "CoreMLImageClassifierInterface",
+            path: "../Core/MLImageClassification"
+        ),
+    ],
     targets: [
         .target(
             name: "DomainClothesInterface",
@@ -23,7 +29,13 @@ let package = Package(
         ),
         .target(
             name: "DomainClothes",
-            dependencies: ["DomainClothesInterface"],
+            dependencies: [
+                "DomainClothesInterface",
+                .product(
+                    name: "CoreMLImageClassifierInterface",
+                    package: "CoreMLImageClassifierInterface"
+                )
+            ],
             path: "Sources"
         )
     ]

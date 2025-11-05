@@ -3,10 +3,6 @@
 
 import SwiftUI
 
-public protocol Route: Hashable {
-    
-}
-
 public protocol Router {
     // Navigation
     var path: NavigationPath { get set }

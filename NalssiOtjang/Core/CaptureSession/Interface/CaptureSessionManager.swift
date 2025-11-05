@@ -7,7 +7,7 @@
 
 import AVFoundation
 
-public protocol CaptureSessionable {
+public protocol CaptureSessionManager {
     var captureSession: AVCaptureSession { get }
     
     func getIsAuthorized() async -> Bool

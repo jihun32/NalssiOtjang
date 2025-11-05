@@ -4,7 +4,7 @@
 import CoreCaptureSessionInterface
 import AVFoundation
 
-final public class CaptureSessionManager: NSObject, CaptureSessionable {
+final public class CaptureSessionManagerImpl: NSObject, CaptureSessionManager {
     
     typealias CaptureContinuation = CheckedContinuation<Data, Error>
     
@@ -90,7 +90,7 @@ final public class CaptureSessionManager: NSObject, CaptureSessionable {
 
 // MARK: - AVCapturePhotoCaptureDelegate
 
-extension CaptureSessionManager: AVCapturePhotoCaptureDelegate {
+extension CaptureSessionManagerImpl: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: (any Error)?) {
         
         defer {

@@ -12,7 +12,7 @@ import CoreCaptureSessionInterface
 struct LiveCameraView: View {
     let isAuthorized: Bool
     let isShowingTutorialAlert: Bool
-    let sessionManager: CaptureSessionable
+    let sessionManager: CaptureSessionManager
     let isShowingBottomToolBar: Bool
     let onCapture: () -> Void
     let onTutorialOK: () -> Void

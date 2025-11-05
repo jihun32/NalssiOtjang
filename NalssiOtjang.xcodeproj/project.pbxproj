@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA740FA72E9F7E2B00A306EF /* CoreMLImageClassifier in Frameworks */ = {isa = PBXBuildFile; productRef = CA740FA62E9F7E2B00A306EF /* CoreMLImageClassifier */; };
+		CA78D8FA2EA7B2AB006BD951 /* CoreMLImageClassifier in Frameworks */ = {isa = PBXBuildFile; productRef = CA78D8F92EA7B2AB006BD951 /* CoreMLImageClassifier */; };
 		CAF5AECD2E8135F2007759B6 /* FeatureRecordPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */; };
 		CAF5AECF2E8231C1007759B6 /* CoreRouter in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AECE2E8231C1007759B6 /* CoreRouter */; };
 		CAF5AEF72E8256A4007759B6 /* CoreCaptureSession in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AEF62E8256A4007759B6 /* CoreCaptureSession */; };
@@ -118,6 +119,7 @@
 				CAF5AECF2E8231C1007759B6 /* CoreRouter in Frameworks */,
 				CAF5AEF72E8256A4007759B6 /* CoreCaptureSession in Frameworks */,
 				CAF5AECD2E8135F2007759B6 /* FeatureRecordPhoto in Frameworks */,
+				CA78D8FA2EA7B2AB006BD951 /* CoreMLImageClassifier in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +233,7 @@
 				CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */,
 				CAF5AECE2E8231C1007759B6 /* CoreRouter */,
 				CAF5AEF62E8256A4007759B6 /* CoreCaptureSession */,
+				CA78D8F92EA7B2AB006BD951 /* CoreMLImageClassifier */,
 			);
 			productName = RecordPhotoExample;
 			productReference = CABC307E2E7AE60900C6C848 /* RecordPhotoExample.app */;
@@ -1126,6 +1129,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		CA740FA62E9F7E2B00A306EF /* CoreMLImageClassifier */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreMLImageClassifier;
+		};
+		CA78D8F92EA7B2AB006BD951 /* CoreMLImageClassifier */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreMLImageClassifier;
 		};
