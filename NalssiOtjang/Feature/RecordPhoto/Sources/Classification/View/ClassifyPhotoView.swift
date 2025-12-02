@@ -71,10 +71,13 @@ struct ClassifyPhotoView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, Constant.RootVStack.horizontalPadding)
-        .setBackgroundGradient()
+        .errorAlert(isPresented: $viewModel.output.isShowingErrorAlet, onDismiss: {
+            viewModel.action(.errorAlertButtonTapped)
+        })
         .onAppear {
             viewModel.action(.onAppear)
         }
+        .setBackgroundGradient()
     }
 }
 

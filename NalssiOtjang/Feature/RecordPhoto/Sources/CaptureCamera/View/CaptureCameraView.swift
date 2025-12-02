@@ -41,30 +41,9 @@ struct CaptureCameraView: View {
         .onAppear {
             viewModel.action(.onAppear)
         }
-        .alert(isPresented: $viewModel.output.isShowingErrorAlet) {
-            Alert(
-                title: Text(Constant.ErrorAlert.title),
-                message: Text(Constant.ErrorAlert.message),
-                dismissButton: .default(
-                    Text(Constant.ErrorAlert.buttonTitle),
-                    action: {
-                        viewModel.action(.errorAlertButtonTapped)
-                    }
-                )
-            )
-        }
+        .errorAlert(isPresented: $viewModel.output.isShowingErrorAlet, onDismiss: {
+            viewModel.action(.errorAlertButtonTapped)
+        })
         .setBackgroundBlackIgnoreSafeArea()
-    }
-}
-
-// MARK: - Constant
-
-extension CaptureCameraView {
-    fileprivate enum Constant {
-        enum ErrorAlert {
-            static let title: String = "오류"
-            static let message: String = "사진 촬영 도중 예상치 못한 오류가 발생했습니다. 다시 시도해 주세요."
-            static let buttonTitle: String = "확인"
-        }
     }
 }

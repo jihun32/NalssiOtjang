@@ -17,12 +17,14 @@ public final class ClassifyPhotoViewModel {
     
     enum Input {
         case onAppear
+        case errorAlertButtonTapped
     }
     
     // MARK: - Output
     
     struct Output {
         var isLoading: Bool = true
+        var isShowingErrorAlet: Bool = false
         var capturedImageData: Data
         var categoryString: String = ""
     }
@@ -61,8 +63,13 @@ public final class ClassifyPhotoViewModel {
                     output.isLoading = false
                 } catch {
                     Log.error("Classification Error: \(error.localizedDescription)")
+                    output.isShowingErrorAlet = true
                 }
             }
+            
+        case .errorAlertButtonTapped:
+            output.isShowingErrorAlet = false
+            router.pop()
         }
     }
 }
