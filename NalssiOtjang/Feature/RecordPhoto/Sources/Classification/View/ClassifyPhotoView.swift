@@ -10,23 +10,20 @@ import SharedDesignSystem
 
 struct ClassifyPhotoView: View {
     
-    @State var isLoading: Bool = true
-    var imageData: Data?
+    @State private var viewModel: ClassifyPhotoViewModel
+    
+    public init(viewModel: ClassifyPhotoViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         VStack(spacing: 0) {
-            if isLoading {
+            if viewModel.output.isLoading {
                 NOLottieView(
                     name: Constant.Loading.lottieName,
                     size: Constant.Loading.lottieSize,
                     loopMode: .loop
                 )
-                .onAppear {
-                    Task {
-                        try await Task.sleep(for: .seconds(Constant.Loading.seconds))
-                        isLoading.toggle()
-                    }
-                }
                 
                 Text(Constant.Loading.text)
                     .font(.title)
@@ -35,9 +32,9 @@ struct ClassifyPhotoView: View {
                 
             } else {
                 ClothesCardView(
-                    imageData: imageData!,
+                    imageData: viewModel.output.capturedImageData,
                     dateString: "2025.10.20",
-                    category: "#니트 #긴바지",
+                    category: viewModel.output.categoryString,
                     weatherImage: "sun.max.fill",
                     weatherColor: .orange,
                     lowTemperature: 15,
@@ -74,14 +71,15 @@ struct ClassifyPhotoView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, Constant.RootVStack.horizontalPadding)
+        .errorAlert(isPresented: $viewModel.output.isShowingErrorAlet, onDismiss: {
+            viewModel.action(.errorAlertButtonTapped)
+        })
+        .onAppear {
+            viewModel.action(.onAppear)
+        }
         .setBackgroundGradient()
     }
 }
-
-#Preview {
-    ClassifyPhotoView(imageData: UIImage(systemName: "sun.max")?.pngData())
-}
-
 
 extension ClassifyPhotoView {
     fileprivate enum Constant {

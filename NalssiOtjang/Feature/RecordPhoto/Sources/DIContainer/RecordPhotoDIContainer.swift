@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreCaptureSessionInterface
-import CoreMLImageClassifierInterface
+import DomainClothesInterface
 import CoreRouterInterface
 
 @MainActor
@@ -15,16 +15,16 @@ public final class RecordPhotoDIContainer {
     
     public struct Dependencies {
         let captureSessionManager: CaptureSessionManager
-        let classifierManager: MLImageClassifierManager
+        let classifierService: ClassifyClothesService
         let router: Router
         
         public init(
             captureSessionManager: CaptureSessionManager,
-            classifierManager: MLImageClassifierManager,
+            classifierService: ClassifyClothesService,
             router: Router
         ) {
             self.captureSessionManager = captureSessionManager
-            self.classifierManager = classifierManager
+            self.classifierService = classifierService
             self.router = router
         }
     }
@@ -46,6 +46,14 @@ public final class RecordPhotoDIContainer {
         CaptureCameraViewModel(
             router: dependenices.router,
             captureSessionManager: dependenices.captureSessionManager
+        )
+    }
+    
+    func makeClassifyPhotoViewModel(imageData: Data) -> ClassifyPhotoViewModel {
+        ClassifyPhotoViewModel(
+            router: dependenices.router,
+            capturedImageData: imageData,
+            classifierService: dependenices.classifierService
         )
     }
 }

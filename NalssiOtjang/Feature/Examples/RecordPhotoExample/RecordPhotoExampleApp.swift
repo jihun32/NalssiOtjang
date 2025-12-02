@@ -10,12 +10,14 @@ import FeatureRecordPhoto
 import CoreRouter
 import CoreCaptureSession
 import CoreMLImageClassifier
+import DomainClothes
 
 @main
 struct RecordPhotoExampleApp: App {
     let router = BaseRouter()
     let captureSessionManager = CaptureSessionManagerImpl()
-    let classifierManager = MLImageClassifierManagerImpl()
+    let classifierService = ClassifyClothesServiceImpl(classifier: MLImageClassifierManagerImpl())
+    
     @State var isToggle: Bool = false
     
     var body: some Scene {
@@ -39,7 +41,7 @@ struct RecordPhotoExampleApp: App {
                         diContianer: RecordPhotoDIContainer(
                             dependenices: .init(
                                 captureSessionManager: captureSessionManager,
-                                classifierManager: classifierManager,
+                                classifierService: classifierService,
                                 router: router
                             )
                         )
@@ -58,7 +60,7 @@ struct RecordPhotoExampleApp: App {
         diContianer: RecordPhotoDIContainer(
             dependenices: .init(
                 captureSessionManager: CaptureSessionManagerImpl(),
-                classifierManager: MLImageClassifierManagerImpl(),
+                classifierService: ClassifyClothesServiceImpl(classifier: MLImageClassifierManagerImpl()),
                 router: BaseRouter()
             )
         )

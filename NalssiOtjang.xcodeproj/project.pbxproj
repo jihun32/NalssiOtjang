@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA07B6762EA7C41900287A39 /* DomainClothes in Frameworks */ = {isa = PBXBuildFile; productRef = CA07B6752EA7C41900287A39 /* DomainClothes */; };
 		CA740FA72E9F7E2B00A306EF /* CoreMLImageClassifier in Frameworks */ = {isa = PBXBuildFile; productRef = CA740FA62E9F7E2B00A306EF /* CoreMLImageClassifier */; };
 		CA78D8FA2EA7B2AB006BD951 /* CoreMLImageClassifier in Frameworks */ = {isa = PBXBuildFile; productRef = CA78D8F92EA7B2AB006BD951 /* CoreMLImageClassifier */; };
 		CAF5AECD2E8135F2007759B6 /* FeatureRecordPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = CAF5AECC2E8135F2007759B6 /* FeatureRecordPhoto */; };
@@ -116,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA07B6762EA7C41900287A39 /* DomainClothes in Frameworks */,
 				CAF5AECF2E8231C1007759B6 /* CoreRouter in Frameworks */,
 				CAF5AEF72E8256A4007759B6 /* CoreCaptureSession in Frameworks */,
 				CAF5AECD2E8135F2007759B6 /* FeatureRecordPhoto in Frameworks */,
@@ -234,6 +236,7 @@
 				CAF5AECE2E8231C1007759B6 /* CoreRouter */,
 				CAF5AEF62E8256A4007759B6 /* CoreCaptureSession */,
 				CA78D8F92EA7B2AB006BD951 /* CoreMLImageClassifier */,
+				CA07B6752EA7C41900287A39 /* DomainClothes */,
 			);
 			productName = RecordPhotoExample;
 			productReference = CABC307E2E7AE60900C6C848 /* RecordPhotoExample.app */;
@@ -1128,6 +1131,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CA07B6752EA7C41900287A39 /* DomainClothes */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainClothes;
+		};
 		CA740FA62E9F7E2B00A306EF /* CoreMLImageClassifier */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreMLImageClassifier;
